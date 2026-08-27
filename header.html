@@ -1,0 +1,222 @@
+<!-- ============================================================
+     PATH PLAZA — SHARED HEADER
+     Usage in any page:
+       <div id="site-header"></div>
+       <script>fetch('header.html').then(r=>r.text()).then(h=>{document.getElementById('site-header').innerHTML=h; initHeader();});</script>
+============================================================ -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
+
+<style>
+/* ── HEADER ── */
+.pp-header {
+  position: sticky;
+  top: 0;
+  z-index: 999;
+  background: #fff;
+  box-shadow: 0 2px 20px rgba(0,0,0,.08);
+  width: 100%;
+}
+
+/* Top bar */
+.pp-topbar {
+  background: #1e48b4;
+  padding: 6px 8%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 12.5px;
+  color: rgba(255,255,255,.85);
+}
+.pp-topbar a { color: rgba(255,255,255,.85); text-decoration: none; display: inline-flex; align-items: center; gap: 6px; transition: color .2s; }
+.pp-topbar a:hover { color: #fff; }
+.pp-topbar-left { display: flex; gap: 20px; flex-wrap: wrap; }
+.pp-topbar-right { display: flex; gap: 10px; }
+.pp-topbar-right a {
+  width: 26px; height: 26px; border-radius: 50%;
+  background: rgba(255,255,255,.15);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 11px;
+  transition: background .2s;
+}
+.pp-topbar-right a:hover { background: rgba(255,255,255,.3); }
+
+/* Main nav */
+.pp-nav-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 8%;
+  height: 80px;
+}
+.pp-nav-links {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  list-style: none;
+  margin: 0; padding: 0;
+}
+.pp-nav-links li a {
+  font-size: 14px;
+  font-weight: 600;
+  color: #1f2937;
+  text-decoration: none;
+  padding: 8px 13px;
+  border-radius: 8px;
+  transition: all .2s;
+  white-space: nowrap;
+}
+.pp-nav-links li a:hover, .pp-nav-links li a.active { background: #eef3fb; color: #1e48b4; }
+.pp-btn-consult {
+  background: #1e48b4;
+  color: #fff !important;
+  font-size: 13.5px !important;
+  font-weight: 700 !important;
+  padding: 10px 22px !important;
+  border-radius: 8px !important;
+  white-space: nowrap;
+  transition: background .2s !important;
+}
+.pp-btn-consult:hover { background: #163a96 !important; color: #fff !important; }
+
+/* Hamburger */
+.pp-hamburger {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  cursor: pointer;
+  background: none;
+  border: none;
+  padding: 6px;
+}
+.pp-hamburger span { display: block; width: 24px; height: 2px; background: #1f2937; border-radius: 2px; transition: all .3s; }
+
+/* Hamburger active state → X */
+.pp-hamburger.is-open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+.pp-hamburger.is-open span:nth-child(2) { opacity: 0; }
+.pp-hamburger.is-open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+/* Mobile menu */
+.pp-mob-menu {
+  display: none;
+  background: #fff;
+  border-top: 1px solid #e5e7eb;
+  padding: 0 8% 20px;
+  box-shadow: 0 8px 20px rgba(0,0,0,.08);
+}
+.pp-mob-menu.open { display: block; }
+
+/* Mobile menu close bar */
+.pp-mob-close-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14px 0 10px;
+  border-bottom: 1px solid #f0f0f0;
+  margin-bottom: 4px;
+}
+.pp-mob-close-bar span {
+  font-size: 13px;
+  font-weight: 600;
+  color: #6b7280;
+  letter-spacing: .3px;
+}
+.pp-mob-close-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px; height: 32px;
+  border-radius: 50%;
+  background: #f3f4f6;
+  border: none;
+  cursor: pointer;
+  font-size: 16px;
+  color: #374151;
+  transition: background .2s, color .2s;
+}
+.pp-mob-close-btn:hover { background: #1e48b4; color: #fff; }
+
+.pp-mob-menu a {
+  display: block;
+  padding: 11px 0;
+  font-size: 14px;
+  font-weight: 600;
+  color: #1f2937;
+  text-decoration: none;
+  border-bottom: 1px solid #f0f0f0;
+  transition: color .2s;
+}
+.pp-mob-menu a:hover { color: #1e48b4; }
+.pp-mob-menu a.pp-btn-consult {
+  margin-top: 14px;
+  display: block;
+  text-align: center;
+  border: none !important;
+  border-radius: 8px;
+  padding: 12px !important;
+}
+
+@media (max-width: 900px) {
+  .pp-nav-links { display: none; }
+  .pp-hamburger { display: flex; }
+  .pp-nav-inner { padding: 0 5%; height: 70px; }
+  .pp-topbar { padding: 6px 5%; }
+  .pp-mob-menu { padding: 0 5% 20px; }
+}
+</style>
+
+<div class="pp-header">
+  <!-- Top bar -->
+  <div class="pp-topbar">
+    <div class="pp-topbar-left">
+      <a href="https://wa.me/923155009620"><i class="fa-solid fa-phone fa-sm"></i> +92 3155009620</a>
+      <a href="https://wa.me/447577439898"><i class="fa-solid fa-phone fa-sm"></i>+44 7577439898</a>
+      <a href="mailto:info@pathplaza.com"><i class="fa-solid fa-envelope fa-sm"></i> info@pathplaza.com</a>
+    </div>
+    <div class="pp-topbar-right">
+      <a href="https://www.instagram.com/pathplaza/" target="_blank" title="Instagram"><i class="fa-brands fa-instagram"></i></a>
+      <a href="https://www.facebook.com/pathplazaltd" target="_blank" title="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+      <a href="https://x.com/pathplaza" target="_blank" title="Twitter"><i class="fa-brands fa-x-twitter"></i></a>
+      <a href="https://www.linkedin.com/company/pathplaza/" target="_blank" title="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+      <a href="https://www.youtube.com/@PathPlaza" target="_blank" title="YouTube"><i class="fa-brands fa-youtube"></i></a>
+    </div>
+  </div>
+
+  <!-- Main nav -->
+  <div class="pp-nav-inner">
+    <a href="index.html">
+      <img src="images/Logo.png" alt="Path Plaza" style="height:100px;width:auto;object-fit:contain;">
+    </a>
+
+    <ul class="pp-nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="about.html">About Us</a></li>
+      <li><a href="services.html">Services</a></li>
+      <li><a href="universities.html">Universities</a></li>
+      <li><a href="destinations.html">Destinations</a></li>
+      <li><a href="initial-profile-review.html">Profile Review</a></li>
+      <li><a href="index.html#contact">Contact</a></li>
+      <li><a href="index.html#contact" class="pp-btn-consult">Book a Free Consultation</a></li>
+    </ul>
+
+    <button class="pp-hamburger" id="ppHamburger" aria-label="Toggle menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+
+  <!-- Mobile menu -->
+  <div class="pp-mob-menu" id="ppMobMenu">
+    <div class="pp-mob-close-bar">
+      <span>Menu</span>
+      <button class="pp-mob-close-btn" id="ppMobClose" aria-label="Close menu">
+        <i class="fa-solid fa-xmark"></i>
+      </button>
+    </div>
+    <a href="index.html">Home</a>
+    <a href="about.html">About Us</a>
+    <a href="services.html">Services</a>
+    <a href="universities.html">Universities</a>
+    <a href="initial-profile-review.html">Profile Review</a>
+    <a href="index.html#contact">Contact</a>
+    <a href="index.html#contact" class="pp-btn-consult">Book a Free Consultation</a>
+  </div>
+</div>

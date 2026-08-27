@@ -1,0 +1,538 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Our Services | Path Plaza — Study Abroad Consultancy Pakistan</title>
+  <meta name="description" content="Explore Path Plaza's comprehensive study abroad services including career counselling, university applications, scholarship guidance, visa support, and pre-departure assistance."/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"/>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet"/>
+  <link rel="canonical" href="https://pathplaza.com/services.html"/>
+  <link rel="stylesheet" href="css/style.css"/>
+  <style>
+  /* ── ANIMATIONS ── */
+  .reveal { opacity:0; transform:translateY(36px); transition:opacity .7s ease, transform .7s ease; }
+  .reveal.visible { opacity:1; transform:none; }
+  .reveal-left { opacity:0; transform:translateX(-40px); transition:opacity .7s ease, transform .7s ease; }
+  .reveal-left.visible { opacity:1; transform:none; }
+  .reveal-right { opacity:0; transform:translateX(40px); transition:opacity .7s ease, transform .7s ease; }
+  .reveal-right.visible { opacity:1; transform:none; }
+
+  /* ── PAGE HERO ── */
+  .svc-hero {
+    position:relative; min-height:420px;
+    background:linear-gradient(135deg,#0c2461 0%,#1e48b4 50%,#0c2461 100%);
+    display:flex; align-items:center; justify-content:center;
+    text-align:center; padding:90px 8%; overflow:hidden;
+  }
+  .svc-hero::before {
+    content:''; position:absolute; inset:0;
+    background:url('https://images.unsplash.com/photo-1434030216411-0b793f4b4173?w=1400&q=50&auto=format&fit=crop') center/cover no-repeat;
+    opacity:.1;
+  }
+  .svc-hero-grid {
+    position:absolute; inset:0;
+    background-image:linear-gradient(rgba(255,255,255,.04) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.04) 1px,transparent 1px);
+    background-size:50px 50px;
+  }
+  .svc-hero-inner { position:relative; z-index:1; max-width:720px; }
+  .sh-breadcrumb { display:inline-flex; align-items:center; gap:8px; font-size:13px; color:rgba(255,255,255,.65); margin-bottom:18px; }
+  .sh-breadcrumb a { color:rgba(255,255,255,.65); text-decoration:none; transition:color .2s; }
+  .sh-breadcrumb a:hover { color:#fff; }
+  .sh-breadcrumb i { font-size:10px; }
+  .svc-hero h1 { font-size:48px; font-weight:900; color:#fff; margin-bottom:16px; line-height:1.1; letter-spacing:-1px; }
+  .svc-hero h1 em { font-style:normal; background:linear-gradient(135deg,#60a5fa,#a78bfa); -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text; }
+  .svc-hero p { font-size:17px; color:rgba(255,255,255,.82); line-height:1.75; max-width:600px; margin:0 auto 28px; }
+  .svc-hero-pills { display:flex; gap:12px; justify-content:center; flex-wrap:wrap; }
+  .svc-pill { background:rgba(255,255,255,.15); border:1px solid rgba(255,255,255,.25); color:#fff; font-size:13px; font-weight:600; padding:8px 18px; border-radius:50px; display:inline-flex; align-items:center; gap:7px; }
+  @media(max-width:600px){ .svc-hero h1{font-size:32px;} }
+
+  /* ── SECTION UTILS ── */
+  .section-label { display:inline-block; font-size:12px; font-weight:700; color:#1e48b4; letter-spacing:2px; text-transform:uppercase; background:#eef3fb; padding:6px 14px; border-radius:20px; margin-bottom:14px; }
+  .sec-title-center { text-align:center; margin-bottom:14px; }
+  .sec-title-center h2 { font-size:34px; font-weight:800; color:#0c2461; margin-bottom:10px; }
+  .sec-title-center p { font-size:15px; color:#6b7280; max-width:650px; margin:0 auto; line-height:1.75; }
+  .divider { width:50px; height:3px; background:#1e48b4; border-radius:2px; margin:14px auto; }
+
+  /* ── MAIN SERVICES GRID ── */
+  .services-main { padding:90px 8%; background:#fff; }
+  .services-main-inner { max-width:1100px; margin:0 auto; }
+  .svc-cards-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:28px; margin-top:54px; }
+  .svc-card {
+    background:#fff; border-radius:20px; padding:36px 28px;
+    border:1.5px solid #e5eaf5;
+    transition:all .35s; position:relative; overflow:hidden;
+  }
+  .svc-card::before {
+    content:''; position:absolute; bottom:0; left:0; right:0; height:3px;
+    background:linear-gradient(135deg,#1e48b4,#60a5fa);
+    transform:scaleX(0); transform-origin:left;
+    transition:transform .35s ease;
+  }
+  .svc-card:hover { box-shadow:0 14px 48px rgba(30,72,180,.14); transform:translateY(-6px); border-color:#bfcfff; }
+  .svc-card:hover::before { transform:scaleX(1); }
+  .svc-card-icon {
+    width:64px; height:64px;
+    background:linear-gradient(135deg,#eef3fb,#dbeafe);
+    border-radius:18px; display:flex; align-items:center; justify-content:center;
+    margin-bottom:22px; transition:all .3s;
+  }
+  .svc-card:hover .svc-card-icon { background:linear-gradient(135deg,#1e48b4,#3b82f6); }
+  .svc-card-icon i { font-size:26px; color:#1e48b4; transition:color .3s; }
+  .svc-card:hover .svc-card-icon i { color:#fff; }
+  .svc-card h3 { font-size:17px; font-weight:800; color:#0c2461; margin-bottom:10px; }
+  .svc-card p { font-size:13.5px; color:#6b7280; line-height:1.75; margin-bottom:20px; }
+  .svc-card-link { display:inline-flex; align-items:center; gap:6px; font-size:13.5px; font-weight:700; color:#1e48b4; text-decoration:none; transition:gap .2s; }
+  .svc-card-link:hover { gap:10px; }
+  @media(max-width:900px){ .svc-cards-grid{grid-template-columns:1fr 1fr;} }
+  @media(max-width:560px){ .svc-cards-grid{grid-template-columns:1fr;} }
+
+  /* ── HOW WE HELP — ALTERNATING ROWS ── */
+  .how-section { padding:90px 8%; background:#f8faff; }
+  .how-inner { max-width:1100px; margin:0 auto; }
+  .how-row {
+    display:grid; grid-template-columns:1fr 1fr;
+    gap:64px; align-items:center;
+    margin-bottom:80px;
+  }
+  .how-row:last-child { margin-bottom:0; }
+  .how-row.reverse { direction:rtl; }
+  .how-row.reverse > * { direction:ltr; }
+  .how-img img { width:100%; border-radius:20px; box-shadow:0 12px 44px rgba(0,0,0,.1); }
+  .how-text .step-badge {
+    display:inline-flex; align-items:center; gap:8px;
+    background:#1e48b4; color:#fff;
+    font-size:12px; font-weight:700; padding:6px 16px; border-radius:50px;
+    margin-bottom:16px;
+  }
+  .how-text h2 { font-size:28px; font-weight:800; color:#0c2461; margin-bottom:14px; line-height:1.3; }
+  .how-text p { font-size:14.5px; color:#6b7280; line-height:1.85; margin-bottom:14px; }
+  .how-checks { list-style:none; display:flex; flex-direction:column; gap:10px; margin-top:16px; }
+  .how-checks li { display:flex; align-items:center; gap:10px; font-size:14px; color:#374151; font-weight:500; }
+  .how-checks li i { color:#1e48b4; font-size:13px; }
+  @media(max-width:768px){ .how-row,.how-row.reverse{grid-template-columns:1fr;direction:ltr;} }
+
+  /* ── PROCESS TIMELINE ── */
+  .process-section { padding:90px 8%; background:#fff; }
+  .process-inner { max-width:1000px; margin:0 auto; }
+  .proc-timeline { position:relative; padding-left:60px; }
+  .proc-timeline::before { content:''; position:absolute; left:20px; top:0; bottom:0; width:2px; background:linear-gradient(to bottom,#1e48b4,#60a5fa,#1e48b4); }
+  .proc-step { position:relative; margin-bottom:44px; padding:28px 28px 28px 32px; background:#fff; border-radius:16px; border:1.5px solid #e5eaf5; transition:all .3s; }
+  .proc-step:hover { box-shadow:0 8px 36px rgba(30,72,180,.12); border-color:#bfcfff; transform:translateX(4px); }
+  .proc-step:last-child { margin-bottom:0; }
+  .proc-step-num {
+    position:absolute; left:-60px; top:24px;
+    width:40px; height:40px; border-radius:50%;
+    background:#1e48b4; color:#fff; font-size:16px; font-weight:800;
+    display:flex; align-items:center; justify-content:center;
+    box-shadow:0 0 0 6px #eef3fb;
+  }
+  .proc-step h3 { font-size:17px; font-weight:700; color:#0c2461; margin-bottom:8px; }
+  .proc-step p { font-size:14px; color:#6b7280; line-height:1.75; margin:0; }
+
+  /* ── PRICING / PACKAGES ── */
+  .packages-section { padding:90px 8%; background:linear-gradient(135deg,#0c2461,#1e48b4); }
+  .packages-inner { max-width:1000px; margin:0 auto; }
+  .pkg-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:24px; margin-top:50px; }
+  .pkg-card {
+    background:rgba(255,255,255,.07); border:1px solid rgba(255,255,255,.15);
+    border-radius:20px; padding:36px 26px; text-align:center;
+    transition:all .3s; position:relative; overflow:hidden;
+  }
+  .pkg-card.featured {
+    background:rgba(255,255,255,.15); border-color:rgba(255,255,255,.4);
+    transform:translateY(-8px); box-shadow:0 14px 50px rgba(0,0,0,.2);
+  }
+  .pkg-badge { position:absolute; top:16px; right:16px; background:#f4b400; color:#1a1a2e; font-size:11px; font-weight:800; padding:4px 12px; border-radius:20px; }
+  .pkg-icon { font-size:36px; margin-bottom:14px; display:block; }
+  .pkg-card h3 { font-size:17px; font-weight:800; color:#fff; margin-bottom:6px; }
+  .pkg-card p { font-size:13.5px; color:rgba(255,255,255,.72); line-height:1.65; margin-bottom:20px; }
+  .pkg-list { list-style:none; text-align:left; margin-bottom:24px; display:flex; flex-direction:column; gap:8px; }
+  .pkg-list li { display:flex; align-items:center; gap:8px; font-size:13px; color:rgba(255,255,255,.8); }
+  .pkg-list li i { color:#60a5fa; font-size:12px; }
+  .pkg-btn { display:block; background:#fff; color:#1e48b4; font-weight:700; font-size:13.5px; padding:12px; border-radius:10px; text-decoration:none; transition:all .2s; }
+  .pkg-btn:hover { background:#dbeafe; }
+  @media(max-width:768px){ .pkg-grid{grid-template-columns:1fr;} .pkg-card.featured{transform:none;} }
+
+  /* ── FAQ ── */
+  .svc-faq { padding:90px 8%; background:#f8faff; }
+  .svc-faq-inner { max-width:820px; margin:0 auto; }
+  .svc-faq-item { background:#fff; border-radius:14px; margin-bottom:12px; overflow:hidden; box-shadow:0 2px 12px rgba(0,0,0,.05); }
+  .svc-faq-q { display:flex; justify-content:space-between; align-items:center; padding:20px 24px; cursor:pointer; font-size:15px; font-weight:600; color:#0c2461; gap:12px; transition:color .2s; }
+  .svc-faq-q i { color:#1e48b4; transition:transform .3s; min-width:16px; }
+  .svc-faq-a { display:none; padding:0 24px 20px; font-size:14px; color:#6b7280; line-height:1.8; }
+  .svc-faq-item.open .svc-faq-a { display:block; }
+  .svc-faq-item.open .svc-faq-q { color:#1e48b4; }
+  .svc-faq-item.open .svc-faq-q i { transform:rotate(45deg); }
+
+  /* ── CTA ── */
+  .svc-cta { position:relative; padding:90px 30px; text-align:center; overflow:hidden; }
+  .svc-cta-bg { position:absolute; inset:0; background:linear-gradient(135deg,#1e48b4,#0c2461); }
+  .svc-cta-ct { position:relative; z-index:1; max-width:700px; margin:0 auto; }
+  .svc-cta-ct h2 { font-size:36px; font-weight:800; color:#fff; margin-bottom:14px; }
+  .svc-cta-ct p { font-size:16px; color:rgba(255,255,255,.85); line-height:1.75; margin-bottom:28px; }
+  .svc-cta-btn { display:inline-flex; align-items:center; gap:8px; background:#fff; color:#1e48b4; font-weight:700; font-size:15px; padding:15px 32px; border-radius:10px; text-decoration:none; transition:all .2s; }
+  .svc-cta-btn:hover { background:#eef3fb; transform:scale(1.03); }
+  </style>
+</head>
+<body>
+
+<!-- SHARED HEADER -->
+<div id="site-header"></div>
+
+<!-- HERO -->
+<section class="svc-hero">
+  <div class="svc-hero-grid"></div>
+  <div class="svc-hero-inner reveal">
+    <div class="sh-breadcrumb">
+      <a href="index.html">Home</a>
+      <i class="fa-solid fa-chevron-right"></i>
+      <span>Our Services</span>
+    </div>
+    <h1>Our <em>Services</em></h1>
+    <p>Practical, honest, and student-focused support for your complete international education journey — from dream to destination.</p>
+    <div class="svc-hero-pills">
+      <div class="svc-pill"><i class="fa-solid fa-circle-check"></i> Career Counselling</div>
+      <div class="svc-pill"><i class="fa-solid fa-circle-check"></i> University Applications</div>
+      <div class="svc-pill"><i class="fa-solid fa-circle-check"></i> Visa Support</div>
+      <div class="svc-pill"><i class="fa-solid fa-circle-check"></i> Scholarships</div>
+    </div>
+  </div>
+</section>
+
+<!-- MAIN SERVICES GRID -->
+<section class="services-main">
+  <div class="services-main-inner">
+    <div class="sec-title-center reveal">
+      <span class="section-label">What We Offer</span>
+      <h2>Comprehensive Study Abroad Services</h2>
+      <div class="divider"></div>
+      <p>From choosing the right university to preparing your application, our team supports you at every important step of the journey.</p>
+    </div>
+    <div class="svc-cards-grid">
+      <div class="svc-card reveal" style="transition-delay:.05s">
+        <div class="svc-card-icon"><i class="fa-solid fa-compass"></i></div>
+        <h3>Academic Counselling</h3>
+        <p>We help students understand suitable study options based on their academic background, career goals, budget, and preferred destination.</p>
+        <a href="index.html#contact" class="svc-card-link">Get Started <i class="fa-solid fa-arrow-right"></i></a>
+      </div>
+      <div class="svc-card reveal" style="transition-delay:.1s">
+        <div class="svc-card-icon"><i class="fa-solid fa-building-columns"></i></div>
+        <h3>University Selection</h3>
+        <p>We guide students in shortlisting universities across the UK, Türkiye, and other destinations according to course, location, tuition fee, and entry requirements.</p>
+        <a href="index.html#contact" class="svc-card-link">Get Started <i class="fa-solid fa-arrow-right"></i></a>
+      </div>
+      <div class="svc-card reveal" style="transition-delay:.15s">
+        <div class="svc-card-icon"><i class="fa-solid fa-route"></i></div>
+        <h3>Course Guidance</h3>
+        <p>We help students choose courses that match their previous education, future career direction, and long-term opportunities in their chosen country.</p>
+        <a href="index.html#contact" class="svc-card-link">Get Started <i class="fa-solid fa-arrow-right"></i></a>
+      </div>
+      <div class="svc-card reveal" style="transition-delay:.2s">
+        <div class="svc-card-icon"><i class="fa-solid fa-file-pen"></i></div>
+        <h3>Admission Support</h3>
+        <p>We assist with application forms, required documents, deadlines, offer letters, SOPs, and communication with universities on your behalf.</p>
+        <a href="index.html#contact" class="svc-card-link">Get Started <i class="fa-solid fa-arrow-right"></i></a>
+      </div>
+      <div class="svc-card reveal" style="transition-delay:.25s">
+        <div class="svc-card-icon"><i class="fa-solid fa-sack-dollar"></i></div>
+        <h3>Scholarship Guidance</h3>
+        <p>We help students explore available scholarship options, tuition discounts, and merit-based opportunities where applicable to reduce costs.</p>
+        <a href="index.html#contact" class="svc-card-link">Get Started <i class="fa-solid fa-arrow-right"></i></a>
+      </div>
+      <div class="svc-card reveal" style="transition-delay:.3s">
+        <div class="svc-card-icon"><i class="fa-solid fa-pen-to-square"></i></div>
+        <h3>Statement of Purpose</h3>
+        <p>We guide students in preparing a clear, professional, and compelling personal statement or SOP that makes their application stand out.</p>
+        <a href="index.html#contact" class="svc-card-link">Get Started <i class="fa-solid fa-arrow-right"></i></a>
+      </div>
+      <div class="svc-card reveal" style="transition-delay:.35s">
+        <div class="svc-card-icon"><i class="fa-solid fa-stamp"></i></div>
+        <h3>Visa Guidance</h3>
+        <p>We provide general guidance on student visa requirements, document preparation, timelines, and interview preparation where needed.</p>
+        <a href="index.html#contact" class="svc-card-link">Get Started <i class="fa-solid fa-arrow-right"></i></a>
+      </div>
+      <div class="svc-card reveal" style="transition-delay:.4s">
+        <div class="svc-card-icon"><i class="fa-solid fa-plane-departure"></i></div>
+        <h3>Pre-Departure Guidance</h3>
+        <p>We support students with travel preparation, accommodation awareness, packing checklist, and basic settlement guidance before departure.</p>
+        <a href="index.html#contact" class="svc-card-link">Get Started <i class="fa-solid fa-arrow-right"></i></a>
+      </div>
+      <div class="svc-card reveal" style="transition-delay:.45s">
+        <div class="svc-card-icon"><i class="fa-solid fa-people-group"></i></div>
+        <h3>Ongoing Student Support</h3>
+        <p>We stay connected with students even after admission, helping them with general guidance during their transition and settlement abroad.</p>
+        <a href="index.html#contact" class="svc-card-link">Get Started <i class="fa-solid fa-arrow-right"></i></a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- HOW WE HELP — ALTERNATING FEATURE ROWS -->
+<section class="how-section">
+  <div class="how-inner">
+    <div class="sec-title-center reveal">
+      <span class="section-label">How We Help</span>
+      <h2>Your Journey, Step by Step</h2>
+      <div class="divider"></div>
+      <p>A deeper look at how Path Plaza supports you through every critical phase of studying abroad.</p>
+    </div>
+
+    <div style="margin-top:60px;">
+      <div class="how-row">
+        <div class="how-img reveal-left">
+          <img src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=700&q=80" alt="Career Counselling">
+        </div>
+        <div class="how-text reveal-right">
+          <div class="step-badge"><i class="fa-solid fa-compass"></i> Step 1</div>
+          <h2>Free Career & Academic Counselling</h2>
+          <p>We start by understanding you — your academic background, your goals, your budget, and your dream destination. This session shapes everything that follows.</p>
+          <p>Our experienced counselors have studied abroad themselves, so they give you honest, practical guidance — not just what you want to hear.</p>
+          <ul class="how-checks">
+            <li><i class="fa-solid fa-check-circle"></i>Detailed academic assessment</li>
+            <li><i class="fa-solid fa-check-circle"></i>Career goal mapping</li>
+            <li><i class="fa-solid fa-check-circle"></i>Budget and funding discussion</li>
+            <li><i class="fa-solid fa-check-circle"></i>Country and course recommendations</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="how-row reverse">
+        <div class="how-img reveal-right">
+          <img src="https://images.unsplash.com/photo-1541339907198-e08756dedf3f?auto=format&fit=crop&w=700&q=80" alt="University Selection">
+        </div>
+        <div class="how-text reveal-left">
+          <div class="step-badge"><i class="fa-solid fa-building-columns"></i> Step 2</div>
+          <h2>University Shortlisting & Application</h2>
+          <p>We match your profile with universities that are the right fit — not just the most famous ones. We consider entry requirements, course quality, cost of living, and career outcomes.</p>
+          <p>Then we help you build a strong application — from SOPs and recommendation letters to transcripts and portfolios.</p>
+          <ul class="how-checks">
+            <li><i class="fa-solid fa-check-circle"></i>Profile-matched university list</li>
+            <li><i class="fa-solid fa-check-circle"></i>Application document preparation</li>
+            <li><i class="fa-solid fa-check-circle"></i>SOP and personal statement guidance</li>
+            <li><i class="fa-solid fa-check-circle"></i>Deadline management</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="how-row">
+        <div class="how-img reveal-left">
+          <img src="https://images.unsplash.com/photo-1554224155-6726b3ff858f?auto=format&fit=crop&w=700&q=80" alt="Scholarship & Visa">
+        </div>
+        <div class="how-text reveal-right">
+          <div class="step-badge"><i class="fa-solid fa-stamp"></i> Step 3</div>
+          <h2>Scholarship, Visa & Pre-Departure</h2>
+          <p>Once you receive an offer, we help you find and apply for scholarships and fee discounts.. Then we guide you through every visa step — documentation, timelines, and interview prep.</p>
+          <p>Finally, we prepare you for life abroad — accommodation, banking, insurance, and cultural tips — so you land confident and ready.</p>
+          <ul class="how-checks">
+            <li><i class="fa-solid fa-check-circle"></i>Scholarship identification & application</li>
+            <li><i class="fa-solid fa-check-circle"></i>Visa document preparation</li>
+            <li><i class="fa-solid fa-check-circle"></i>Interview coaching</li>
+            <li><i class="fa-solid fa-check-circle"></i>Pre-departure orientation</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROCESS TIMELINE -->
+<section class="process-section">
+  <div class="process-inner">
+    <div class="sec-title-center reveal">
+      <span class="section-label">Our Simple Process</span>
+      <h2>From Consultation to Arrival</h2>
+      <div class="divider"></div>
+      <p>No confusion, no unnecessary delays. Just a clear pathway from your first meeting to your first day abroad.</p>
+    </div>
+    <div class="proc-timeline" style="margin-top:54px;">
+      <div class="proc-step reveal" style="transition-delay:.1s">
+        <div class="proc-step-num">01</div>
+        <h3>Free Consultation</h3>
+        <p>We understand your academic background, budget, country preference, and career goals. This first session is completely free and without any obligation.</p>
+      </div>
+      <div class="proc-step reveal" style="transition-delay:.15s">
+        <div class="proc-step-num">02</div>
+        <h3>University Shortlisting</h3>
+        <p>We suggest suitable universities and courses according to your profile, eligibility, and aspirations. We present options with full transparency on costs and outcomes.</p>
+      </div>
+      <div class="proc-step reveal" style="transition-delay:.2s">
+        <div class="proc-step-num">03</div>
+        <h3>Application Preparation</h3>
+        <p>We help you prepare all required documents — SOPs, transcripts, references, and forms — and submit a strong, well-organised application on your behalf.</p>
+      </div>
+      <div class="proc-step reveal" style="transition-delay:.25s">
+        <div class="proc-step-num">04</div>
+        <h3>Offer & Scholarship</h3>
+        <p>Once you receive your offer letter, we help you evaluate funding options, scholarships, and fee discounts to make your dream financially achievable.</p>
+      </div>
+      <div class="proc-step reveal" style="transition-delay:.3s">
+        <div class="proc-step-num">05</div>
+        <h3>Visa Application</h3>
+        <p>Our visa experts prepare all your documentation and coach you for the interview — so your file is complete, honest, and as strong as your profile allows. The final decision always rests with the immigration authority</p>
+      </div>
+      <div class="proc-step reveal" style="transition-delay:.35s">
+        <div class="proc-step-num">06</div>
+        <h3>Pre-Departure & Arrival</h3>
+        <p>We prepare you for life abroad — accommodation, banking, insurance, and what to expect — so you land confident, prepared, and excited.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PACKAGES -->
+<section class="packages-section">
+  <div class="packages-inner">
+    <div class="sec-title-center reveal">
+      <span class="section-label" style="background:rgba(255,255,255,.15);color:#fff;">Our Packages</span>
+      <h2 style="color:#fff;">Choose Your Support Level</h2>
+      <div class="divider" style="background:#60a5fa;"></div>
+      <p style="color:rgba(255,255,255,.78);">Whether you need full guidance or just a helping hand at a specific stage — we have a package for you.</p>
+    </div>
+    <div class="pkg-grid">
+      <div class="pkg-card reveal" style="transition-delay:.1s">
+        <span class="pkg-icon">🎯</span>
+        <h3>Starter</h3>
+        <p>Perfect for students who need guidance on where to begin their study abroad journey.</p>
+        <ul class="pkg-list">
+          <li><i class="fa-solid fa-check"></i>1 Free Consultation Session</li>
+          <li><i class="fa-solid fa-check"></i>Country & Course Guidance</li>
+          <li><i class="fa-solid fa-check"></i>University Shortlist (3 options)</li>
+          <li><i class="fa-solid fa-check"></i>General Visa Info</li>
+        </ul>
+        <a href="index.html#contact" class="pkg-btn">Get Started — Free</a>
+      </div>
+      <div class="pkg-card featured reveal" style="transition-delay:.15s">
+        <div class="pkg-badge">Most Popular</div>
+        <span class="pkg-icon">🚀</span>
+        <h3>Full Support</h3>
+        <p>Complete end-to-end guidance from first consultation all the way to visa approval.</p>
+        <ul class="pkg-list">
+          <li><i class="fa-solid fa-check"></i>Everything in Starter</li>
+          <li><i class="fa-solid fa-check"></i>Full Application Preparation</li>
+          <li><i class="fa-solid fa-check"></i>SOP & Documents Support</li>
+          <li><i class="fa-solid fa-check"></i>Scholarship Identification</li>
+          <li><i class="fa-solid fa-check"></i>Visa Document Preparation</li>
+          <li><i class="fa-solid fa-check"></i>Visa Interview Coaching</li>
+        </ul>
+        <a href="index.html#contact" class="pkg-btn">Book Free Consultation</a>
+      </div>
+      <div class="pkg-card reveal" style="transition-delay:.2s">
+        <span class="pkg-icon">✈️</span>
+        <h3>Premium</h3>
+        <p>For students who want full support plus personalised pre-departure and post-arrival assistance.</p>
+        <ul class="pkg-list">
+          <li><i class="fa-solid fa-check"></i>Everything in Full Support</li>
+          <li><i class="fa-solid fa-check"></i>Pre-Departure Orientation</li>
+          <li><i class="fa-solid fa-check"></i>Accommodation Guidance</li>
+          <li><i class="fa-solid fa-check"></i>Banking & Insurance Tips</li>
+          <li><i class="fa-solid fa-check"></i>Post-Arrival Check-in</li>
+        </ul>
+        <a href="index.html#contact" class="pkg-btn">Contact Us</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="svc-faq">
+  <div class="svc-faq-inner">
+    <div class="sec-title-center reveal">
+      <span class="section-label">FAQ</span>
+      <h2>Frequently Asked Questions</h2>
+      <div class="divider"></div>
+      <p>Quick answers about our study abroad services.</p>
+    </div>
+    <div style="margin-top:40px;">
+      <div class="svc-faq-item open reveal">
+        <div class="svc-faq-q" onclick="toggleFaq(this)">What services does Path Plaza provide? <i class="fa-solid fa-plus"></i></div>
+        <div class="svc-faq-a">Path Plaza provides complete study abroad support including academic counselling, university selection, application preparation, SOP guidance, scholarship identification, visa support, and pre-departure orientation.</div>
+      </div>
+      <div class="svc-faq-item reveal">
+        <div class="svc-faq-q" onclick="toggleFaq(this)">Is the first consultation really free? <i class="fa-solid fa-plus"></i></div>
+        <div class="svc-faq-a">Yes, your first consultation is always completely free with no pressure or obligation. It's a chance for us to understand your goals and for you to understand how we can help.</div>
+      </div>
+      <div class="svc-faq-item reveal">
+        <div class="svc-faq-q" onclick="toggleFaq(this)">How long does the full application process take? <i class="fa-solid fa-plus"></i></div>
+        <div class="svc-faq-a">Timelines vary by country and intake, but most applications take 4-8 weeks from document preparation to submission. We'll give you a clear timeline during your consultation.</div>
+      </div>
+      <div class="svc-faq-item reveal">
+        <div class="svc-faq-q" onclick="toggleFaq(this)">Can you help me write my Statement of Purpose (SOP)? <i class="fa-solid fa-plus"></i></div>
+        <div class="svc-faq-a">Yes. We guide students in preparing a clear, professional, and compelling SOP or personal statement. We help you structure your story in a way that resonates with university admissions teams.</div>
+      </div>
+      <div class="svc-faq-item reveal">
+        <div class="svc-faq-q" onclick="toggleFaq(this)">Do you provide visa interview preparation? <i class="fa-solid fa-plus"></i></div>
+        <div class="svc-faq-a">Absolutely. Our visa experts prepare all your documentation and coach you through mock interviews so you're fully prepared and confident on interview day.</div>
+      </div>
+      <div class="svc-faq-item reveal">
+        <div class="svc-faq-q" onclick="toggleFaq(this)">Do you help with scholarships? <i class="fa-solid fa-plus"></i></div>
+        <div class="svc-faq-a">Yes. We identify scholarships, grants, and financial aid programs that match your profile and help you prepare a strong application to maximize your chances of funding.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="svc-cta">
+  <div class="svc-cta-bg"></div>
+  <div class="svc-cta-ct reveal">
+    <h2>Ready to Start Your Application?</h2>
+    <p>Speak with Path Plaza today and explore the right study options for your future. Your first consultation is completely free.</p>
+    <a href="index.html#contact" class="svc-cta-btn">Book Free Consultation <i class="fa-solid fa-arrow-right"></i></a>
+  </div>
+</section>
+
+<!-- SHARED FOOTER -->
+<div id="site-footer"></div>
+
+<!-- WhatsApp -->
+<a href="https://wa.me/923155009620?text=Hi%20Path%20Plaza%2C%20I%27d%20like%20to%20know%20more%20about%20studying%20abroad." class="whatsapp-float" target="_blank" rel="noopener" aria-label="WhatsApp">
+  <i class="fa-brands fa-whatsapp"></i>
+</a>
+
+<script>
+  fetch('header.html').then(r=>r.text()).then(function(h){document.getElementById('site-header').innerHTML=h;initHeader();});
+
+  function initHeader(){
+    var btn=document.getElementById('ppHamburger');
+    var menu=document.getElementById('ppMobMenu');
+    var closeBtn=document.getElementById('ppMobClose');
+    if(!btn||!menu) return;
+    btn.addEventListener('click',function(){
+      menu.classList.toggle('open');
+      btn.classList.toggle('is-open');
+    });
+    if(closeBtn){
+      closeBtn.addEventListener('click',function(){
+        menu.classList.remove('open');
+        btn.classList.remove('is-open');
+      });
+    }
+    menu.querySelectorAll('a').forEach(function(a){
+      a.addEventListener('click',function(){ menu.classList.remove('open'); btn.classList.remove('is-open'); });
+    });
+  }
+  fetch('footer.html').then(r=>r.text()).then(h=>{document.getElementById('site-footer').innerHTML=h;});
+
+  // Reveal animations
+  const obs = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if(e.isIntersecting) e.target.classList.add('visible'); });
+  }, { threshold: 0.08 });
+  document.querySelectorAll('.reveal, .reveal-left, .reveal-right').forEach(el => obs.observe(el));
+
+  // FAQ accordion
+  function toggleFaq(el) {
+    const item = el.parentElement;
+    const isOpen = item.classList.contains('open');
+    document.querySelectorAll('.svc-faq-item').forEach(i => {
+      i.classList.remove('open');
+      i.querySelector('.svc-faq-q i').className = 'fa-solid fa-plus';
+    });
+    if (!isOpen) {
+      item.classList.add('open');
+      item.querySelector('.svc-faq-q i').className = 'fa-solid fa-xmark';
+    }
+  }
+</script>
+</body>
+</html>

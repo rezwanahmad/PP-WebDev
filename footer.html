@@ -1,0 +1,222 @@
+<!-- ============================================================
+     PATH PLAZA — SHARED FOOTER
+     Usage in any page:
+       <div id="site-footer"></div>
+       <script>fetch('footer.html').then(r=>r.text()).then(h=>{document.getElementById('site-footer').innerHTML=h;});</script>
+============================================================ -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
+
+<style>
+.pp-footer {
+  background: #0f172a;
+  color: #94a3b8;
+  font-family: 'Inter', Arial, sans-serif;
+}
+.pp-footer-top {
+  padding: 60px 8% 48px;
+  max-width: 1280px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 32px;
+}
+.pp-ft-title {
+  font-size: 14px;
+  font-weight: 700;
+  color: #fff;
+  margin-bottom: 18px;
+  padding-bottom: 10px;
+  position: relative;
+}
+.pp-ft-title::after {
+  content: '';
+  position: absolute;
+  bottom: 0; left: 0;
+  width: 32px; height: 2px;
+  background: #1e48b4;
+  border-radius: 2px;
+}
+.pp-ft-col ul { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 10px; }
+.pp-ft-col ul li a {
+  font-size: 13.5px;
+  color: #94a3b8;
+  text-decoration: none;
+  transition: color .2s, padding-left .2s;
+  display: flex; align-items: center; gap: 6px;
+}
+.pp-ft-col ul li a:hover { color: #1e48b4; padding-left: 4px; }
+.pp-ft-col ul li a::before { content: '›'; color: #1e48b4; opacity: 0; transition: opacity .2s; font-weight: 700; }
+.pp-ft-col ul li a:hover::before { opacity: 1; }
+
+.pp-footer-divider { height: 1px; background: rgba(255,255,255,.07); margin: 0 8%; }
+
+.pp-footer-bottom {
+  padding: 40px 8%;
+  max-width: 1280px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 40px;
+  flex-wrap: wrap;
+}
+.pp-footer-logo img { height: 150px; width: auto; margin-bottom: 14px; display: block; }
+.pp-footer-address { font-size: 13px; color: #64748b; line-height: 1.7; display: flex; align-items: flex-start; gap: 8px; margin-bottom: 14px; }
+.pp-footer-address i { color: #1e48b4; margin-top: 2px; }
+.pp-footer-contacts { display: flex; flex-wrap: wrap; gap: 6px 20px; margin-bottom: 18px; }
+.pp-footer-contacts a { font-size: 13px; color: #94a3b8; text-decoration: none; display: inline-flex; align-items: center; gap: 7px; transition: color .2s; }
+.pp-footer-contacts a i { color: #1e48b4; }
+.pp-footer-contacts a:hover { color: #1e48b4; }
+.pp-social-label { font-size: 11px; font-weight: 700; color: #64748b; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 12px; }
+.pp-socials { display: flex; gap: 10px; }
+.pp-social-btn {
+  width: 36px; height: 36px; border-radius: 8px;
+  display: flex; align-items: center; justify-content: center;
+  text-decoration: none; transition: all .2s;
+}
+.pp-social-btn:hover { transform: translateY(-3px); opacity: .85; }
+.pp-social-btn i { font-size: 14px; color: #fff; }
+.pp-s-ig { background: linear-gradient(45deg,#f09433,#e6683c,#dc2743,#cc2366,#bc1888); }
+.pp-s-fb { background: #1877f2; }
+.pp-s-tw { background: #000; }
+.pp-s-li { background: #0a66c2; }
+.pp-s-yt { background: #ff0000; }
+
+.pp-footer-cta { display: flex; flex-direction: column; align-items: flex-end; gap: 14px; padding-top: 4px; flex-shrink: 0; }
+.pp-footer-cta h4 { font-size: 16px; font-weight: 700; color: #fff; text-align: right; margin: 0; }
+.pp-cta-btn {
+  display: inline-block;
+  background: #1e48b4;
+  color: #fff;
+  font-size: 14px;
+  font-weight: 700;
+  padding: 13px 28px;
+  border-radius: 8px;
+  text-decoration: none;
+  transition: background .2s, transform .2s;
+  white-space: nowrap;
+}
+.pp-cta-btn:hover { background: #163a96; transform: scale(1.03); }
+
+.pp-footer-copy {
+  border-top: 1px solid rgba(255,255,255,.06);
+  padding: 18px 8%;
+  text-align: center;
+  font-size: 13px;
+  color: #475569;
+}
+.pp-footer-copy a { color: #1e48b4; text-decoration: none; }
+
+@media (max-width: 960px) {
+  .pp-footer-top { grid-template-columns: 1fr 1fr; }
+  .pp-footer-bottom { flex-direction: column; }
+  .pp-footer-cta { align-items: flex-start; }
+}
+@media (max-width: 540px) {
+  .pp-footer-top { grid-template-columns: 1fr; padding: 40px 6% 32px; }
+  .pp-footer-bottom { padding: 32px 6%; }
+  .pp-footer-divider { margin: 0 6%; }
+  .pp-footer-copy { padding: 16px 6%; }
+}
+</style>
+
+<footer class="pp-footer">
+
+  <!--<div class="pp-footer-top">-->
+
+    <!-- Our Services -->
+  <!--  <div class="pp-ft-col">-->
+  <!--    <h4 class="pp-ft-title">Our Services</h4>-->
+  <!--    <ul>-->
+  <!--      <li><a href="services.html">Career & Course Counseling</a></li>-->
+  <!--      <li><a href="services.html">University Applications</a></li>-->
+  <!--      <li><a href="services.html">Scholarship & Financial Aid</a></li>-->
+  <!--      <li><a href="services.html">Visa Consultation</a></li>-->
+  <!--      <li><a href="services.html">Pre-Departure Guidance</a></li>-->
+  <!--      <li><a href="services.html">Test Prep Referrals</a></li>-->
+  <!--    </ul>-->
+  <!--  </div>-->
+
+    <!-- Countries -->
+  <!--  <div class="pp-ft-col">-->
+  <!--    <h4 class="pp-ft-title">Countries</h4>-->
+  <!--    <ul>-->
+  <!--      <li><a href="countries.html">Study in Canada</a></li>-->
+  <!--      <li><a href="countries.html">Study in UK</a></li>-->
+  <!--      <li><a href="countries.html">Study in Australia</a></li>-->
+  <!--      <li><a href="countries.html">Study in USA</a></li>-->
+  <!--      <li><a href="countries.html">Study in UAE</a></li>-->
+  <!--      <li><a href="countries.html">Study in Turkey</a></li>-->
+  <!--    </ul>-->
+  <!--  </div>-->
+
+    <!-- Study Level -->
+  <!--  <div class="pp-ft-col">-->
+  <!--    <h4 class="pp-ft-title">Study Level</h4>-->
+  <!--    <ul>-->
+  <!--      <li><a href="#">Undergraduate</a></li>-->
+  <!--      <li><a href="#">Postgraduate</a></li>-->
+  <!--      <li><a href="#">PhD / Doctorate</a></li>-->
+  <!--      <li><a href="#">Diploma / Certificate</a></li>-->
+  <!--      <li><a href="#">Foundation Year</a></li>-->
+  <!--    </ul>-->
+  <!--  </div>-->
+
+    <!-- Company -->
+  <!--  <div class="pp-ft-col">-->
+  <!--    <h4 class="pp-ft-title">Company</h4>-->
+  <!--    <ul>-->
+  <!--      <li><a href="about.html">About Us</a></li>-->
+  <!--      <li><a href="universities.html">Universities</a></li>-->
+  <!--      <li><a href="resources.html">Resources</a></li>-->
+  <!--      <li><a href="index.html#contact">Contact Us</a></li>-->
+  <!--      <li><a href="#">FAQ's</a></li>-->
+  <!--      <li><a href="#">Terms & Conditions</a></li>-->
+  <!--      <li><a href="#">Privacy Policy</a></li>-->
+  <!--    </ul>-->
+  <!--  </div>-->
+
+  <!--</div>-->
+
+  <div class="pp-footer-divider"></div>
+
+  <div class="pp-footer-bottom">
+    <div>
+      <div class="pp-footer-logo">
+        <img src="images/footer-logo.png" alt="Path Plaza" onerror="this.src='images/Logo.png'">
+      </div>
+      <p class="pp-footer-address">
+    <i class="fa-solid fa-location-dot"></i>
+    Path Plaza (SMC) Pvt Ltd c/o Quickoffice<br>
+    304, Upper Mall<br>
+    Lahore, Punjab, Pakistan
+</p>
+      <p class="pp-footer-address" style="margin-top:6px">
+    <i class="fa-solid fa-clock"></i>
+    Mon–Fri, 11:00 AM–7:00 PM &nbsp;(appointment recommended)
+</p>
+      <div class="pp-footer-contacts">
+        <a href="https://wa.me/923155009620"><i class="fa-solid fa-phone fa-sm"></i> 92315-500-9620</a>
+<a href="mailto:info@pathplaza.com"><i class="fa-solid fa-envelope"></i> info@pathplaza.com</a>
+      </div>
+      <p class="pp-social-label">Get Social With Us:</p>
+      <div class="pp-socials">
+        <a href="https://www.instagram.com/pathplaza/" target="_blank" class="pp-social-btn pp-s-ig" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+        <a href="https://www.facebook.com/pathplazaltd" target="_blank" class="pp-social-btn pp-s-fb" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+        <a href="https://x.com/pathplaza" target="_blank" class="pp-social-btn pp-s-tw" aria-label="Twitter"><i class="fa-brands fa-x-twitter"></i></a>
+        <a href="https://www.linkedin.com/company/pathplaza/" target="_blank" class="pp-social-btn pp-s-li" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+        <a href="https://www.youtube.com/@PathPlaza" target="_blank" class="pp-social-btn pp-s-yt" aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a>
+      </div>
+    </div>
+
+    <div class="pp-footer-cta">
+      <h4>Ready to Start Your Journey?</h4>
+      <a href="initial-profile-review.html" class="pp-cta-btn">Get Free Consultation</a>
+    </div>
+  </div>
+
+  <div class="pp-footer-copy">
+    <p>Copyrights &copy; 2024-2026. All Rights Reserved by <a href="index.html">Path Plaza (SMC) Pvt Ltd</a>. &nbsp;·&nbsp; <a href="privacy-policy.html">Privacy Policy</a> &nbsp;·&nbsp; <a href="terms.html">Terms of Use</a> &nbsp;·&nbsp; <a href="service-scope-and-refund-policy.html">Service Scope and Refund Policy</a> &nbsp;·&nbsp; <a href="disclaimer.html">Disclaimer</a> </a> &nbsp;·&nbsp; <a href="FAQs.html">FAQs</a></p>
+  </div>
+
+</footer>

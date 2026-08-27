@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<!-- ================================================================
+     PATH PLAZA — SERVICE SCOPE & REFUND POLICY  ·  /service-scope-and-refund-policy
+     Version 2.0 · Effective 11 August 2026
+     Standards: Pathfinder v3.1 · fees never linked to outcomes ·
+     no public fee amounts · §36.7 contact rules (info@pathplaza.com
+     shown PLAIN — no obfuscation).
+
+     RESPONSIVE: reflows 2-column (desktop) → stacked (mobile).
+     Logo clicks through to the home page.
+     ================================================================ -->
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Service Scope &amp; Refund Policy | Path Plaza — Education &amp; Visa Consultants</title>
+<meta name="description" content="Exactly what each Path Plaza service includes, what it excludes, and how cancellations and refunds work — free vs paid stages, third-party costs, and the written service agreement that governs your case.">
+<style>
+  :root{
+    --blue:#1E51C7; --navy:#0B1F3A; --teal:#1C7C7D; --gold:#C9A227;
+    --bg:#F5F7FA; --ink:#1F2A3D; --muted:#5A6B85; --line:#E2E8F2;
+    --radius:14px; --shadow:0 6px 24px rgba(11,31,58,.06);
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{
+    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+    background:var(--bg); color:var(--ink); line-height:1.75; font-size:16px;
+    -webkit-font-smoothing:antialiased;
+  }
+  img,svg{max-width:100%;height:auto}
+
+  /* ---------- Shell (white header so the blue logo is visible) ---------- */
+  .site-shell{background:#fff;border-bottom:1px solid var(--line);}
+  .site-shell-inner{
+    max-width:1080px;margin:0 auto;padding:14px clamp(16px,4vw,28px);
+    display:flex;align-items:center;gap:18px;flex-wrap:wrap;
+  }
+  .site-shell a.logo-link{display:inline-flex;line-height:0;text-decoration:none}
+  .site-shell a.logo-link:hover{opacity:.88}
+  .site-shell a.logo-link:focus-visible{outline:2px solid var(--gold);outline-offset:4px;border-radius:6px}
+  .site-shell img.logo{height:clamp(40px,6vw,52px);width:auto;display:block}
+
+  /* ---------- Hero ---------- */
+  .page-hero{
+    background:linear-gradient(135deg,var(--navy) 0%,#12315e 60%,var(--blue) 100%);
+    color:#fff;padding:clamp(40px,7vw,64px) clamp(18px,5vw,24px) clamp(36px,6vw,58px);
+    position:relative;overflow:hidden;
+  }
+  .page-hero::after{
+    content:"";position:absolute;right:-120px;top:-120px;width:380px;height:380px;
+    border-radius:50%;background:rgba(201,162,39,.14);
+  }
+  .page-hero .inner{position:relative;z-index:1;max-width:1080px;margin:0 auto}
+  .page-hero .kicker{
+    display:inline-block;background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.25);
+    color:#EAF0FF;font-size:.78rem;letter-spacing:.16em;text-transform:uppercase;
+    padding:6px 14px;border-radius:999px;margin-bottom:18px;
+  }
+  .page-hero h1{font-size:clamp(1.9rem,6vw,2.7rem);line-height:1.2;letter-spacing:-.01em;max-width:840px}
+  .page-hero p.sub{margin-top:14px;color:#C7D4EC;max-width:760px;font-size:clamp(.95rem,2.5vw,1.05rem)}
+  .page-hero p.sub a{color:#fff;text-decoration:underline;text-underline-offset:3px}
+  .page-hero p.sub a:hover{color:var(--gold)}
+  .page-hero .meta{margin-top:22px;font-size:.85rem;color:#9DB2D6}
+  .page-hero .meta strong{color:#fff;font-weight:600}
+
+  /* ---------- Layout (2-col → 1-col) ---------- */
+  .page-body{
+    max-width:1080px;margin:0 auto;padding:clamp(28px,5vw,44px) clamp(16px,4vw,24px) 80px;
+    display:grid;grid-template-columns:280px 1fr;gap:clamp(20px,4vw,44px);align-items:start;
+  }
+
+  /* ---------- TOC card ---------- */
+  .toc{
+    position:sticky;top:20px;background:#fff;border:1px solid var(--line);
+    border-radius:var(--radius);padding:20px;box-shadow:var(--shadow);font-size:.92rem;
+  }
+  .toc h2{font-size:.78rem;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);margin-bottom:12px}
+  .toc a{
+    display:block;padding:6px 10px;border-radius:8px;color:var(--ink);text-decoration:none;
+    border-left:3px solid transparent;
+  }
+  .toc a:hover{background:var(--bg);border-left-color:var(--gold);color:var(--blue)}
+  .toc .toc-note{margin-top:14px;padding-top:14px;border-top:1px dashed var(--line);
+    font-size:.8rem;color:var(--muted)}
+
+  /* ---------- Document content ---------- */
+  .doc{background:#fff;border:1px solid var(--line);border-radius:var(--radius);
+    padding:clamp(22px,4vw,52px);box-shadow:var(--shadow);min-width:0}
+  .doc h2{
+    font-size:clamp(1.1rem,3vw,1.28rem);color:var(--navy);margin:44px 0 12px;
+    padding-top:28px;border-top:1px solid var(--line);scroll-margin-top:90px;
+  }
+  .doc h2 .num{color:var(--gold);font-variant-numeric:tabular-nums;margin-right:10px;font-size:.95em}
+  .doc h2:first-of-type{border-top:none;margin-top:0;padding-top:0}
+  .doc h3{font-size:1.02rem;color:var(--blue);margin:20px 0 8px}
+  .doc p{margin:10px 0;overflow-wrap:break-word}
+  .doc ul{margin:10px 0 14px 22px}
+  .doc li{margin:7px 0}
+  .doc li::marker{color:var(--gold)}
+  .doc a{color:var(--blue);word-break:break-word}
+  .doc table{width:100%;border-collapse:collapse;margin:14px 0;font-size:.9rem}
+  .doc th{background:var(--navy);color:#fff;text-align:left;padding:10px 12px;font-weight:600}
+  .doc td{padding:10px 12px;border:1px solid var(--line);vertical-align:top}
+  .doc tr:nth-child(even) td{background:#FAFBFE}
+  .pill{display:inline-block;font-size:.68rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;
+    border-radius:999px;padding:2px 9px;margin-top:4px;white-space:nowrap}
+  .pill.free{background:#E6F4EC;color:#177245}
+  .pill.paid{background:#FBF3DC;color:#8A6B12}
+
+  .callout{
+    border:1px solid var(--line);border-left:4px solid var(--blue);
+    background:#F2F6FF;border-radius:10px;padding:16px 18px;margin:18px 0;font-size:.95rem;
+  }
+  .callout.gold{border-left-color:var(--gold);background:#FBF6E8}
+  .callout.teal{border-left-color:var(--teal);background:#EFF7F7}
+  .callout strong{color:var(--navy)}
+  .callout .contact-line{display:block;margin-top:6px}
+
+  .badge{
+    display:inline-block;background:var(--navy);color:#fff;font-size:.72rem;font-weight:600;
+    letter-spacing:.08em;text-transform:uppercase;border-radius:6px;padding:3px 9px;margin-left:8px;
+    vertical-align:middle;
+  }
+
+  /* ---------- Footer ---------- */
+  .site-footer{background:var(--navy);color:#B9C7E0;padding:38px clamp(16px,4vw,24px)}
+  .site-footer .inner{max-width:1080px;margin:0 auto}
+  .site-footer .disclaimer{font-size:.82rem;line-height:1.7;border-top:1px solid rgba(255,255,255,.14);
+    padding-top:20px;color:#93A6C6}
+  .site-footer a{color:#EAF0FF}
+
+  /* =====================================================================
+     RESPONSIVE BREAKPOINTS
+     ===================================================================== */
+
+  /* Tablet / narrow: stack layout, TOC becomes a horizontal scroll strip */
+  @media (max-width:880px){
+    .page-body{grid-template-columns:1fr}
+    .toc{position:static;top:auto;order:-1;overflow-x:auto;padding:14px}
+    .toc h2{margin-bottom:8px}
+    .toc ol{list-style:none;display:flex;gap:6px;overflow-x:auto;padding-bottom:6px;-webkit-overflow-scrolling:touch}
+    .toc ol li{flex:0 0 auto}
+    .toc a{white-space:nowrap;border-left:none;border-bottom:3px solid transparent;padding:8px 10px}
+    .toc a:hover{border-bottom-color:var(--gold);border-left:none}
+    .toc .toc-note{display:none}
+    /* make tables scrollable on narrow screens instead of breaking layout */
+    .doc table{display:block;overflow-x:auto;-webkit-overflow-scrolling:touch}
+  }
+
+  /* Small phones */
+  @media (max-width:560px){
+    body{font-size:15px}
+    .page-body{padding-bottom:56px}
+    .doc h2{margin-top:32px;padding-top:20px}
+    .site-shell-inner{justify-content:center;text-align:center}
+    .callout{padding:14px}
+  }
+
+  /* Print */
+  @media print{
+    body{background:#fff;font-size:11.5pt}
+    .site-shell,.site-footer{display:none}
+    .toc{display:none}
+    .page-body{display:block;padding:0}
+    .page-hero{background:var(--navy)!important;-webkit-print-color-adjust:exact;print-color-adjust:exact;padding:24px}
+    .page-hero::after{display:none}
+    .doc{border:none;box-shadow:none;padding:0}
+    .doc h2{page-break-after:avoid}
+    .doc table{display:table;overflow:visible}
+    .callout{page-break-inside:avoid}
+  }
+</style>
+</head>
+<body>
+
+<!-- ===== SHELL HEADER · replace with site header on integration ===== -->
+<div class="site-shell">
+  <div class="site-shell-inner">
+    <a href="https://pathplaza.com/" class="logo-link" aria-label="Go to Path Plaza home page">
+      <img src="images/Logo.png" alt="Path Plaza" style="height:100px;width:auto;object-fit:contain;">
+    </a>
+  </div>
+</div>
+
+<!-- ===== PAGE HERO ===== -->
+<header class="page-hero">
+  <div class="inner">
+    <span class="kicker">Legal · Services &amp; Refunds</span>
+    <h1>Service Scope &amp; Refund Policy</h1>
+    <p class="sub">Exactly what each Path Plaza service includes, where the free part ends and the paid part begins, and precisely how cancellations and refunds are handled — so there are no surprises before you pay, or after.</p>
+    <p class="meta">Version <strong>2.0</strong> · Effective <strong>11 August 2026</strong> · Read with our <a href="/terms-of-use">Terms of Use</a> and <a href="/privacy-policy">Privacy Policy</a>.</p>
+  </div>
+</header>
+
+<!-- ===== BODY ===== -->
+<main class="page-body">
+
+  <aside class="toc" aria-label="Contents">
+    <h2>On this page</h2>
+    <ol>
+      <li><a href="#agreement">1 · Your service agreement governs</a></li>
+      <li><a href="#menu">2 · The service menu</a></li>
+      <li><a href="#included">3 · Included vs excluded</a></li>
+      <li><a href="#fees">4 · How fees work</a></li>
+      <li><a href="#cancellations">5 · Cancellations &amp; refund table</a></li>
+      <li><a href="#by-us">6 · If we cancel a service</a></li>
+      <li><a href="#how-to">7 · How to request a refund</a></li>
+      <li><a href="#fair-use">8 · Fair-use &amp; honesty clause</a></li>
+      <li><a href="#contact">9 · Questions</a></li>
+    </ol>
+    <p class="toc-note">Rule of thumb: you always know what is free before anything is paid, and every payment has a receipt and a written agreement.</p>
+  </aside>
+
+  <article class="doc">
+
+    <h2 id="agreement"><span class="num">01</span>Your service agreement governs</h2>
+    <p>Before any paid work begins, Path Plaza confirms your scope, stages, and fees in a <strong>written service agreement</strong> (shared and acknowledged in writing, including by email or WhatsApp). That document is the governing record for your case. This page explains the standard framework; <strong>if your signed agreement and this page ever differ, your agreement prevails.</strong></p>
+
+    <h2 id="menu"><span class="num">02</span>The service menu</h2>
+    <table>
+      <tr><th>Stage</th><th>What it is</th><th>Type</th></tr>
+      <tr>
+        <td><strong>Study Abroad Profile Check</strong></td>
+        <td>A first review of your qualifications, destination preference, budget band, and English status — an honest view of whether your plan is realistic, and what a sensible next step looks like. Delivered as a short written preview.</td>
+        <td><span class="pill free">Free</span></td>
+      </tr>
+      <tr>
+        <td><strong>Study Abroad Roadmap</strong></td>
+        <td>A structured, written plan for your case: destination-fit analysis, verified shortlist options, document checklist, timeline, and action steps. Fee confirmed in consultation; adjustable when it forms part of a wider consultancy package.</td>
+        <td><span class="pill paid">Paid</span></td>
+      </tr>
+      <tr>
+        <td><strong>Consultancy Package</strong></td>
+        <td>End-to-end support through your chosen route: university &amp; course direction, application and documentation support, and visa file preparation assistance. Stages and inclusions itemised in your agreement.</td>
+        <td><span class="pill paid">Paid</span></td>
+      </tr>
+      <tr>
+        <td><strong>Pre-Departure Support</strong></td>
+        <td>Travel, accommodation-direction, arrival, and settling guidance. Included for package clients as scoped in the agreement; available separately otherwise.</td>
+        <td><span class="pill paid">Per agreement</span></td>
+      </tr>
+    </table>
+    <p>The free stage is genuinely free: <strong>no card details, no token payments, and no obligation</strong> to continue. We will tell you clearly at the point where a paid stage begins.</p>
+
+    <h2 id="included"><span class="num">03</span>Included vs excluded</h2>
+    <h3>Every paid Path Plaza service includes</h3>
+    <ul>
+      <li>Honest assessment — we would rather lose a sale than sell an unrealistic plan;</li>
+      <li>Official-source verification of fees, requirements, and intakes before you commit money to an application;</li>
+      <li>Organised documentation support and honest file preparation;</li>
+      <li>A written record of scope, stage, and progress for your case;</li>
+      <li>Receipts for every payment made to Path Plaza.</li>
+    </ul>
+    <h3>Every Path Plaza service excludes</h3>
+    <ul>
+      <li><strong>Third-party costs</strong> — university application fees, tuition deposits, IELTS/PTE or other test fees, TB test fees, health insurance/IHS-type charges, visa and immigration fees, translations, attestations, notarisation, and couriers. These are set by third parties, paid to them through their official channels, and are usually non-refundable by them.</li>
+      <li><strong>Outcomes</strong> — admission, scholarships, visa approval, work, or settlement. Our fees pay for defined work and honest representation of your case, never for a result.</li>
+      <li><strong>Legal or immigration representation</strong>, appeals, or tribunal work — where your case needs a qualified lawyer or licensed adviser, we will say so plainly.</li>
+    </ul>
+
+    <h2 id="fees"><span class="num">04</span>How fees work</h2>
+    <ul>
+      <li>Fees are <strong>discussed in consultation and confirmed in writing before you pay</strong>. We do not publish fee schedules on the Website, because scope differs from case to case.</li>
+      <li>Fees are charged <strong>per service stage</strong>, so you never pay for the whole journey upfront.</li>
+      <li>Fees are <strong>never linked to outcomes</strong> — no "pay when the visa arrives" promises, and no extra charge if you get a scholarship. Success-dependent pricing is a red flag in this industry; we don't use it.</li>
+      <li>Promotional adjustments (for example, a Roadmap fee credit against a later package) are honoured exactly as written in your agreement.</li>
+    </ul>
+
+    <h2 id="cancellations"><span class="num">05</span>Cancellations &amp; refund table <span class="badge">Standard framework</span></h2>
+    <table>
+      <tr><th>Situation</th><th>Refund position</th></tr>
+      <tr>
+        <td>You cancel the Roadmap <strong>before the session / before work begins</strong></td>
+        <td>Full refund of the Roadmap fee.</td>
+      </tr>
+      <tr>
+        <td>You cancel after the Roadmap has been <strong>delivered</strong></td>
+        <td>No refund — a delivered written plan is completed work. (Any package credit promised in your agreement still stands.)</td>
+      </tr>
+      <tr>
+        <td>You withdraw during the <strong>application stage</strong></td>
+        <td>Refund of the stage fee minus the value of work already performed (assessments completed, shortlists prepared, applications drafted or submitted), itemised in writing.</td>
+      </tr>
+      <tr>
+        <td>You withdraw during the <strong>visa-file stage</strong></td>
+        <td>Same principle: unearned portion refunded, completed work retained, itemisation provided.</td>
+      </tr>
+      <tr>
+        <td><strong>University or visa refusal</strong></td>
+        <td>A third party's decision does not itself create a refund entitlement — our fee covered the preparation work. Partial refunds apply only where written in your agreement.</td>
+      </tr>
+      <tr>
+        <td><strong>Third-party amounts</strong> already paid out (application fees, test fees, etc.)</td>
+        <td>Never refundable by us — they belong to the third party's own refund policy, which we will help you check.</td>
+      </tr>
+      <tr>
+        <td>Termination for <strong>dishonesty</strong> (false documents, concealed refusals)</td>
+        <td>Service stops immediately; fees for work performed are not refundable.</td>
+      </tr>
+    </table>
+
+    <h2 id="by-us"><span class="num">06</span>If we cancel a service</h2>
+    <p>Occasionally we must decline or stop a case — for example when requested options are not realistically available, destinations fall outside our four active countries, or a client cannot meet document deadlines. Where Path Plaza ends a service for reasons other than client dishonesty, you receive a <strong>refund of all unearned fees</strong> for work not yet performed, itemised in writing. Declining an unrealistic case before payment costs you nothing.</p>
+
+    <h2 id="how-to"><span class="num">07</span>How to request a refund</h2>
+    <ul>
+      <li>Write to <a href="mailto:info@pathplaza.com">info@pathplaza.com</a> or WhatsApp <strong>+92 315 5009620</strong> with your name, the service, and the reason. Written requests create a record for both of us.</li>
+      <li>We acknowledge within 3 working days and give a <strong>substantive decision within 14 days</strong>, including an itemisation if any portion is retained.</li>
+      <li>Approved refunds are paid by the same channel you paid with, within 14 days of approval, and confirmed in writing.</li>
+    </ul>
+
+    <h2 id="fair-use"><span class="num">08</span>Fair-use &amp; honesty clause</h2>
+    <p>Refunds exist for genuine situations. They do not cover: change of mind after completed work; inability to meet third-party costs or entry requirements that were disclosed to you; decisions made by institutions or authorities; or cases terminated for dishonesty. This clause protects honest clients by keeping the service viable and fairly priced for everyone.</p>
+
+    <h2 id="contact"><span class="num">09</span>Questions</h2>
+    <div class="callout">
+      <strong>Path Plaza (SMC) Pvt Ltd</strong>
+      <span class="contact-line">c/o Quickoffice, 304 Upper Mall, Lahore, Pakistan</span>
+      <span class="contact-line">Email: <a href="mailto:info@pathplaza.com">info@pathplaza.com</a> · Phone/WhatsApp: <a href="tel:+923155009620">+92 315 5009620</a></span>
+      <span class="contact-line">Monday–Friday, 11:00 AM–7:00 PM (Pakistan time) · Appointment recommended</span>
+    </div>
+    <p>Ask about scope and refunds <strong>before</strong> you pay — that conversation is free, and we expect families to have it.</p>
+
+  </article>
+</main>
+
+<!-- ===== FOOTER · replace with site footer on integration ===== -->
+<footer class="site-footer">
+  <div class="inner">
+    <p><strong>Path Plaza — Your Gateway to Global Education</strong> · United Kingdom · Turkey · Ireland · Malaysia</p>
+    <p class="disclaimer">Path Plaza provides education consultancy, admission support, documentation guidance, and visa file preparation assistance. We do not guarantee admission, scholarships, visa approval, or immigration outcomes. Final decisions are made by institutions and the relevant authorities. Fees, entry requirements, scholarship availability, and immigration rules can change.</p>
+  </div>
+</footer>
+
+</body>
+</html>

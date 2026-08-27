@@ -1,0 +1,829 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Partner Universities | Path Plaza — Study Abroad Consultancy Pakistan</title>
+  <meta name="description" content="Explore institutions available through Path Plaza's verified application channels for the UK, Turkey, Ireland and Malaysia."/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"/>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet"/>
+  <link rel="canonical" href="https://pathplaza.com/universities.html"/>
+  <link rel="stylesheet" href="css/style.css"/>
+  <style>
+  /* ── ANIMATIONS ── */
+  .reveal{opacity:0;transform:translateY(30px);transition:opacity .6s ease,transform .6s ease;}
+  .reveal.visible{opacity:1;transform:none;}
+
+  /* ── PAGE HERO ── */
+  .uni-hero{
+    position:relative;min-height:360px;
+    background:linear-gradient(135deg,#0c2461 0%,#1e48b4 50%,#0c2461 100%);
+    display:flex;align-items:center;justify-content:center;
+    text-align:center;padding:80px 8%;overflow:hidden;
+  }
+  .uni-hero::before{
+    content:'';position:absolute;inset:0;
+    background:url('https://images.unsplash.com/photo-1607237138185-eedd9c632b0b?w=1400&q=40&auto=format&fit=crop') center/cover no-repeat;
+    opacity:.1;
+  }
+  .uni-hero-grid{
+    position:absolute;inset:0;
+    background-image:linear-gradient(rgba(255,255,255,.04) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.04) 1px,transparent 1px);
+    background-size:48px 48px;
+  }
+  .uni-hero-inner{position:relative;z-index:1;max-width:720px;}
+  .uh-breadcrumb{display:inline-flex;align-items:center;gap:8px;font-size:13px;color:rgba(255,255,255,.6);margin-bottom:16px;}
+  .uh-breadcrumb a{color:rgba(255,255,255,.6);text-decoration:none;transition:color .2s;}
+  .uh-breadcrumb a:hover{color:#fff;}
+  .uh-breadcrumb i{font-size:10px;}
+  .uni-hero h1{font-size:46px;font-weight:900;color:#fff;line-height:1.1;margin-bottom:14px;letter-spacing:-1px;}
+  .uni-hero h1 em{font-style:normal;background:linear-gradient(135deg,#60a5fa,#a78bfa);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;}
+  .uni-hero p{font-size:16px;color:rgba(255,255,255,.8);line-height:1.75;max-width:580px;margin:0 auto 28px;}
+  .uh-stats{display:flex;gap:36px;justify-content:center;flex-wrap:wrap;}
+  .uh-stat strong{display:block;font-size:28px;font-weight:800;color:#fff;}
+  .uh-stat span{font-size:13px;color:rgba(255,255,255,.65);}
+  @media(max-width:600px){.uni-hero h1{font-size:30px;}}
+
+  /* ── SEARCH BAR ── */
+  .search-wrap{
+    background:#fff;
+    padding:28px 8%;
+    box-shadow:0 4px 20px rgba(0,0,0,.07);
+    position:sticky;top:0;z-index:100;
+    border-bottom:1px solid #e5eaf5;
+  }
+  .search-inner{max-width:700px;margin:0 auto;position:relative;}
+  .search-inner i{position:absolute;left:18px;top:50%;transform:translateY(-50%);color:#9ca3af;font-size:16px;}
+  #uniSearch{
+    width:100%;padding:14px 18px 14px 48px;
+    font-size:15px;font-family:'Inter',sans-serif;
+    border:2px solid #e5eaf5;border-radius:12px;
+    outline:none;transition:border .2s;color:#1f2937;
+    background:#f8faff;
+  }
+  #uniSearch:focus{border-color:#1e48b4;background:#fff;}
+  #uniSearch::placeholder{color:#9ca3af;}
+
+  /* ── COUNTRY FILTER TABS ── */
+  .filter-section{background:#fff;padding:0 8%;border-bottom:2px solid #f0f0f0;}
+  .filter-tabs-wrap{max-width:1200px;margin:0 auto;overflow-x:auto;scrollbar-width:none;}
+  .filter-tabs-wrap::-webkit-scrollbar{display:none;}
+  .filter-tabs{display:flex;gap:0;min-width:max-content;}
+  .filter-tab{
+    padding:18px 28px;font-size:14px;font-weight:600;
+    color:#6b7280;cursor:pointer;border:none;background:transparent;
+    border-bottom:3px solid transparent;
+    transition:all .25s;white-space:nowrap;
+    display:flex;align-items:center;gap:8px;
+    font-family:'Inter',sans-serif;
+  }
+  .filter-tab:hover{color:#1e48b4;background:#f8faff;}
+  .filter-tab.active{color:#1e48b4;border-bottom-color:#1e48b4;background:#f0f5ff;}
+  .tab-count{
+    background:#eef3fb;color:#1e48b4;
+    font-size:11px;font-weight:700;
+    padding:2px 8px;border-radius:20px;
+    transition:all .25s;
+  }
+  .filter-tab.active .tab-count{background:#1e48b4;color:#fff;}
+
+  /* ── RESULTS BAR ── */
+  .results-bar{
+    padding:16px 8%;background:#f8faff;
+    border-bottom:1px solid #e5eaf5;
+  }
+  .results-bar-inner{max-width:1200px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px;}
+  .results-count{font-size:14px;color:#6b7280;font-weight:500;}
+  .results-count strong{color:#0c2461;}
+
+  /* ── UNIVERSITY GRID ── */
+  .unis-section{padding:40px 8% 80px;}
+  .unis-inner{max-width:1200px;margin:0 auto;}
+  .unis-grid{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:20px;
+  }
+  @media(max-width:1100px){.unis-grid{grid-template-columns:repeat(3,1fr);}}
+  @media(max-width:768px){.unis-grid{grid-template-columns:repeat(2,1fr);}}
+  @media(max-width:480px){.unis-grid{grid-template-columns:1fr;}}
+
+  /* ── UNIVERSITY CARD ── */
+  .uni-card{
+    background:#fff;border-radius:16px;
+    border:1.5px solid #e5eaf5;
+    padding:28px 20px 22px;
+    display:flex;flex-direction:column;align-items:center;
+    text-align:center;
+    transition:all .35s;
+    cursor:pointer;
+    position:relative;
+    overflow:hidden;
+  }
+  .uni-card::before{
+    content:'';position:absolute;bottom:0;left:0;right:0;height:3px;
+    background:linear-gradient(135deg,#1e48b4,#60a5fa);
+    transform:scaleX(0);transform-origin:left;
+    transition:transform .35s ease;
+  }
+  .uni-card:hover{
+    box-shadow:0 12px 40px rgba(30,72,180,.14);
+    transform:translateY(-5px);
+    border-color:#bfcfff;
+  }
+  .uni-card:hover::before{transform:scaleX(1);}
+
+  /* card animation on filter */
+  .uni-card.hide{
+    opacity:0;transform:scale(.9);
+    pointer-events:none;
+    position:absolute;visibility:hidden;
+  }
+  .uni-card.show{
+    opacity:1;transform:scale(1);
+    position:relative;visibility:visible;
+    animation:cardIn .4s ease forwards;
+  }
+  @keyframes cardIn{
+    from{opacity:0;transform:translateY(20px) scale(.96);}
+    to{opacity:1;transform:translateY(0) scale(1);}
+  }
+
+  .uni-logo-wrap{
+    width:100%;height:90px;
+    display:flex;align-items:center;justify-content:center;
+    margin-bottom:16px;padding:0 8px;
+  }
+  .uni-logo-wrap img{
+    max-width:100%;max-height:80px;
+    object-fit:contain;
+    filter:grayscale(20%);
+    transition:filter .3s;
+  }
+  .uni-card:hover .uni-logo-wrap img{filter:grayscale(0%);}
+
+  .uni-country-badge{
+    display:inline-flex;align-items:center;gap:5px;
+    font-size:11px;font-weight:700;color:#1e48b4;
+    background:#eef3fb;padding:3px 10px;border-radius:20px;
+    margin-bottom:10px;letter-spacing:.3px;
+  }
+  .uni-name{
+    font-size:14px;font-weight:700;color:#0c2461;
+    margin-bottom:14px;line-height:1.4;
+    flex:1;
+  }
+  .uni-link{
+    display:inline-flex;align-items:center;gap:6px;
+    font-size:13px;font-weight:700;color:#1e48b4;
+    text-decoration:none;padding:8px 20px;
+    border:2px solid #1e48b4;border-radius:8px;
+    transition:all .2s;
+  }
+  .uni-link:hover{background:#1e48b4;color:#fff;}
+
+  /* ── NO RESULTS ── */
+  .no-results{
+    text-align:center;padding:80px 20px;
+    display:none;
+    grid-column:1/-1;
+  }
+  .no-results i{font-size:48px;color:#d1d5db;margin-bottom:16px;display:block;}
+  .no-results h3{font-size:20px;font-weight:700;color:#6b7280;margin-bottom:8px;}
+  .no-results p{font-size:14px;color:#9ca3af;}
+
+  /* ── CTA ── */
+  .uni-cta{position:relative;padding:80px 30px;text-align:center;overflow:hidden;}
+  .uni-cta-bg{position:absolute;inset:0;background:linear-gradient(135deg,#1e48b4,#0c2461);}
+  .uni-cta-ct{position:relative;z-index:1;max-width:700px;margin:0 auto;}
+  .uni-cta-ct h2{font-size:34px;font-weight:800;color:#fff;margin-bottom:12px;}
+  .uni-cta-ct p{font-size:16px;color:rgba(255,255,255,.85);margin-bottom:26px;line-height:1.75;}
+  .uni-cta-btn{display:inline-flex;align-items:center;gap:8px;background:#fff;color:#1e48b4;font-weight:700;font-size:15px;padding:14px 30px;border-radius:10px;text-decoration:none;transition:all .2s;}
+  .uni-cta-btn:hover{background:#eef3fb;transform:scale(1.03);}
+
+  /* ── SECTION UTILS ── */
+  .section-label{display:inline-block;font-size:12px;font-weight:700;color:#1e48b4;letter-spacing:2px;text-transform:uppercase;background:#eef3fb;padding:6px 14px;border-radius:20px;margin-bottom:14px;}
+  .divider{width:50px;height:3px;background:#1e48b4;border-radius:2px;margin:14px auto;}
+  </style>
+</head>
+<body>
+
+<div id="site-header"></div>
+
+<!-- HERO -->
+<section class="uni-hero">
+  <div class="uni-hero-grid"></div>
+  <div class="uni-hero-inner reveal">
+    <div class="uh-breadcrumb">
+      <a href="index.html">Home</a>
+      <i class="fa-solid fa-chevron-right"></i>
+      <span>Universities</span>
+    </div>
+    <h1>Our Partner <em>Universities</em></h1>
+    <p>Institutions available through our verified application channels for the UK, Turkey, Ireland and Malaysia.</p>
+    <div class="uh-stats">
+      <div class="uh-stat"><strong>62</strong><span>Institutions Listed</span></div>
+      <div class="uh-stat"><strong>4</strong><span>Active Destinations</span></div>
+      <div class="uh-stat"><strong>Verified</strong><span>Application Channels</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- SEARCH -->
+<div class="search-wrap">
+  <div class="search-inner">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <input type="text" id="uniSearch" placeholder="Search universities by name..."/>
+  </div>
+</div>
+
+<!-- COUNTRY FILTER TABS -->
+<div class="filter-section">
+  <div class="filter-tabs-wrap">
+    <div class="filter-tabs" id="filterTabs">
+      <button class="filter-tab active" data-country="all">
+        <i class="fa-solid fa-globe"></i> All Countries
+        <span class="tab-count" id="count-all">62</span>
+      </button>
+      <button class="filter-tab" data-country="uk">
+        🇬🇧 United Kingdom
+        <span class="tab-count" id="count-uk">43</span>
+      </button>
+      <button class="filter-tab" data-country="ireland">
+        🇮🇪 Ireland
+        <span class="tab-count" id="count-ireland">0</span>
+      </button>
+      <button class="filter-tab" data-country="malaysia">
+        🇲🇾 Malaysia
+        <span class="tab-count" id="count-malaysia">0</span>
+      </button>
+      <button class="filter-tab" data-country="turkey">
+        🇹🇷 Turkey
+        <span class="tab-count" id="count-turkey">19</span>
+      </button>
+    </div>
+  </div>
+</div>
+
+<!-- RESULTS BAR -->
+<div class="results-bar">
+  <div class="results-bar-inner">
+    <div class="results-count">Showing <strong id="visibleCount">62</strong> universities</div>
+  </div>
+</div>
+
+<!-- UNIVERSITY GRID -->
+<section class="unis-section">
+  <div class="unis-inner">
+    <div class="unis-grid" id="unisGrid">
+
+      <!-- UK Universities — all 43 from docx -->
+      <div class="uni-card show" data-country="uk" data-name="University of Hertfordshire">
+        <div class="uni-logo-wrap"><img src="images/universities/uk/1. logo-hertfordshire-300x93.png" alt="University of Hertfordshire"/></div>
+        <div class="uni-country-badge">🇬🇧 UK</div>
+        <div class="uni-name">University of Hertfordshire</div>
+        <a href="https://www.herts.ac.uk" target="_blank" rel="noopener" class="uni-link">Learn More <i class="fa-solid fa-arrow-up-right-from-square fa-xs"></i></a>
+      </div>
+
+      <div class="uni-card show" data-country="uk" data-name="Birmingham City University">
+        <div class="uni-logo-wrap"><img src="images/universities/uk/2. BCU-logo-stacked_blue.png" alt="Birmingham City University"/></div>
+        <div class="uni-country-badge">🇬🇧 UK</div>
+        <div class="uni-name">Birmingham City University</div>
+        <a href="https://www.bcu.ac.uk" target="_blank" rel="noopener" class="uni-link">Learn More <i class="fa-solid fa-arrow-up-right-from-square fa-xs"></i></a>
+      </div>
+
+      <div class="uni-card show" data-country="uk" data-name="University of Dundee">
+        <div class="uni-logo-wrap"><img src="images/universities/uk/3. university-of-dundee-logo-png_seeklogo-405690.png" alt="University of Dundee"/></div>
+        <div class="uni-country-badge">🇬🇧 UK</div>
+        <div class="uni-name">University of Dundee</div>
+        <a href="https://www.dundee.ac.uk" target="_blank" rel="noopener" class="uni-link">Learn More <i class="fa-solid fa-arrow-up-right-from-square fa-xs"></i></a>
+      </div>
+
+      <div class="uni-card show" data-country="uk" data-name="Heriot-Watt University">
+        <div class="uni-logo-wrap"><img src="images/universities/uk/4 hwu-global-logo.xad4d4107.png" alt="Heriot-Watt University"/></div>
+        <div class="uni-country-badge">🇬🇧 UK</div>
+        <div class="uni-name">Heriot-Watt University</div>
+        <a href="https://www.hw.ac.uk" target="_blank" rel="noopener" class="uni-link">Learn More <i class="fa-solid fa-arrow-up-right-from-square fa-xs"></i></a>
+      </div>
+
+      <div class="uni-card show" data-country="uk" data-name="Brunel University of London">
+        <div class="uni-logo-wrap"><img src="images/universities/uk/5. brunel-university-logo-colour.jpg" alt="Brunel University of London"/></div>
+        <div class="uni-country-badge">🇬🇧 UK</div>
+        <div class="uni-name">Brunel University of London</div>
+        <a href="https://www.brunel.ac.uk" target="_blank" rel="noopener" class="uni-link">Learn More <i class="fa-solid fa-arrow-up-right-from-square fa-xs"></i></a>
+      </div>
+
+      <div class="uni-card show" data-country="uk" data-name="University of Greenwich">
+        <div class="uni-logo-wrap"><img src="images/universities/uk/6. logo_final_on_white.png" alt="University of Greenwich"/></div>
+        <div class="uni-country-badge">🇬🇧 UK</div>
+        <div class="uni-name">University of Greenwich</div>
+        <a href="https://www.gre.ac.uk" target="_blank" rel="noopener" class="uni-link">Learn More <i class="fa-solid fa-arrow-up-right-from-square fa-xs"></i></a>
+      </div>
+
+      <div class="uni-card show" data-country="uk" data-name="St Mary's University Twickenham">
+        <div class="uni-logo-wrap"><img src="images/universities/uk/7. STMARYS-3109468.png" alt="St Mary's University Twickenham"/></div>
+        <div class="uni-country-badge">🇬🇧 UK</div>
+        <div class="uni-name">St Mary's University Twickenham</div>
+        <a href="https://www.stmarys.ac.uk" target="_blank" rel="noopener" class="uni-link">Learn More <i class="fa-solid fa-arrow-up-right-from-square fa-xs"></i></a>
+      </div>
+
+      <div class="uni-card show" data-country="uk" data-name="University of Roehampton">
+        <div class="uni-logo-wrap"><img src="images/universities/uk/8. 8BE4-EA82-4660-88AE-0A29.png" alt="University of Roehampton"/></div>
+        <div class="uni-country-badge">🇬🇧 UK</div>
+        <div class="uni-name">University of Roehampton</div>
+        <a href="https://www.roehampton.ac.uk" target="_blank" rel="noopener" class="uni-link">Learn More <i class="fa-solid fa-arrow-up-right-from-square fa-xs"></i></a>
+      </div>
+
+      <div class="uni-card show" data-country="uk" data-name="Ravensbourne University London">
+        <div class="uni-logo-wrap"><img src="images/universities/uk/9. Ravensbourne_Logo_Special_Use_RGB.png" alt="Ravensbourne University London"/></div>
+        <div class="uni-country-badge">🇬🇧 UK</div>
+        <div class="uni-name">Ravensbourne University London</div>
+        <a href="https://www.ravensbourne.ac.uk" target="_blank" rel="noopener" class="uni-link">Learn More <i class="fa-solid fa-arrow-up-right-from-square fa-xs"></i></a>
+      </div>
+
+      <div class="uni-card show" data-country="uk" data-name="University of Hull London Campus">
+        <div class="uni-logo-wrap"><img src="images/universities/uk/10. 5F7B-A0D0-41B0-8AE9-2086.png" alt="University of Hull"/></div>
+        <div class="uni-country-badge">🇬🇧 UK</div>
+        <div class="uni-name">University of Hull (London Campus)</div>
+        <a href="https://www.hull.ac.uk" target="_blank" rel="noopener" class="uni-link">Learn More <i class="fa-solid fa-arrow-up-right-from-square fa-xs"></i></a>
+      </div>
+
+      <div class="uni-card show" data-country="uk" data-name="London South Bank University">
+        <div class="uni-logo-wrap"><img src="images/universities/uk/11. LSBU_700.png" alt="London South Bank University"/></div>
+        <div class="uni-country-badge">🇬🇧 UK</div>
+        <div class="uni-name">London South Bank University</div>
+        <a href="https://www.lsbu.ac.uk" target="_blank" rel="noopener" class="uni-link">Learn More <i class="fa-solid fa-arrow-up-right-from-square fa-xs"></i></a>
+      </div>
+
+      <div class="uni-card show" data-country="uk" data-name="Ulster University">
+        <div class="uni-logo-wrap"><img src="images/universities/uk/12. Ulster-University-Logo-1.png" alt="Ulster University"/></div>
+        <div class="uni-country-badge">🇬🇧 UK</div>
+        <div class="uni-name">Ulster University</div>
+        <a href="https://www.ulster.ac.uk" target="_blank" rel="noopener" class="uni-link">Learn More <i class="fa-solid fa-arrow-up-right-from-square fa-xs"></i></a>
+      </div>
+
+      <div class="uni-card show" data-country="uk" data-name="Bangor University">
+        <div class="uni-logo-wrap"><img src="images/universities/uk/13. bangor_logo_c1_flush-800x228-1.png" alt="Bangor University"/></div>
+        <div class="uni-country-badge">🇬🇧 UK</div>
+        <div class="uni-name">Bangor University</div>
+        <a href="https://www.bangor.ac.uk" target="_blank" rel="noopener" class="uni-link">Learn More <i class="fa-solid fa-arrow-up-right-from-square fa-xs"></i></a>
+      </div>
+
+      <div class="uni-card show" data-country="uk" data-name="Cardiff Metropolitan University">
+        <div class="uni-logo-wrap"><img src="images/universities/uk/14. CMET-landscape-logo_blue.png" alt="Cardiff Metropolitan University"/></div>
+        <div class="uni-country-badge">🇬🇧 UK</div>
+        <div class="uni-name">Cardiff Metropolitan University</div>
+        <a href="https://www.cardiffmet.ac.uk" target="_blank" rel="noopener" class="uni-link">Learn More <i class="fa-solid fa-arrow-up-right-from-square fa-xs"></i></a>
+      </div>
+
+      <div class="uni-card show" data-country="uk" data-name="Anglia Ruskin University">
+        <div class="uni-logo-wrap"><img src="images/universities/uk/15. ARU_Logo_Colour.png" alt="Anglia Ruskin University"/></div>
+        <div class="uni-country-badge">🇬🇧 UK</div>
+        <div class="uni-name">Anglia Ruskin University</div>
+        <a href="https://www.aru.ac.uk" target="_blank" rel="noopener" class="uni-link">Learn More <i class="fa-solid fa-arrow-up-right-from-square fa-xs"></i></a>
+      </div>
+
+      <div class="uni-card show" data-country="uk" data-name="University of Chester">
+        <div class="uni-logo-wrap"><img src="images/universities/uk/16. University-of-Chester.png" alt="University of Chester"/></div>
+        <div class="uni-country-badge">🇬🇧 UK</div>
+        <div class="uni-name">University of Chester</div>
+        <a href="https://www.chester.ac.uk" target="_blank" rel="noopener" class="uni-link">Learn More <i class="fa-solid fa-arrow-up-right-from-square fa-xs"></i></a>
+      </div>
+
+      <div class="uni-card show" data-country="uk" data-name="University of Bedfordshire">
+        <div class="uni-logo-wrap"><img src="images/universities/uk/17. University-of-Bedfordshire.png" alt="University of Bedfordshire"/></div>
+        <div class="uni-country-badge">🇬🇧 UK</div>
+        <div class="uni-name">University of Bedfordshire</div>
+        <a href="https://www.beds.ac.uk" target="_blank" rel="noopener" class="uni-link">Learn More <i class="fa-solid fa-arrow-up-right-from-square fa-xs"></i></a>
+      </div>
+
+      <div class="uni-card show" data-country="uk" data-name="Nottingham Trent University">
+        <div class="uni-logo-wrap"><img src="images/universities/uk/18. NTU-Nottingham-Trent-University-Logo-Vector.svg-.png" alt="Nottingham Trent University"/></div>
+        <div class="uni-country-badge">🇬🇧 UK</div>
+        <div class="uni-name">Nottingham Trent University</div>
+        <a href="https://www.ntu.ac.uk" target="_blank" rel="noopener" class="uni-link">Learn More <i class="fa-solid fa-arrow-up-right-from-square fa-xs"></i></a>
+      </div>
+
+      <div class="uni-card show" data-country="uk" data-name="University of Lincoln">
+        <div class="uni-logo-wrap"><img src="images/universities/uk/19. university-of-lincoln-logo-vector.png" alt="University of Lincoln"/></div>
+        <div class="uni-country-badge">🇬🇧 UK</div>
+        <div class="uni-name">University of Lincoln</div>
+        <a href="https://www.lincoln.ac.uk" target="_blank" rel="noopener" class="uni-link">Learn More <i class="fa-solid fa-arrow-up-right-from-square fa-xs"></i></a>
+      </div>
+
+      <div class="uni-card show" data-country="uk" data-name="University of Essex">
+        <div class="uni-logo-wrap"><img src="images/universities/uk/20. saadsasdads.jpg" alt="University of Essex"/></div>
+        <div class="uni-country-badge">🇬🇧 UK</div>
+        <div class="uni-name">University of Essex</div>
+        <a href="https://www.essex.ac.uk" target="_blank" rel="noopener" class="uni-link">Learn More <i class="fa-solid fa-arrow-up-right-from-square fa-xs"></i></a>
+      </div>
+
+      <div class="uni-card show" data-country="uk" data-name="Leeds Trinity University">
+        <div class="uni-logo-wrap"><img src="images/universities/uk/21. LTU-logo-full-colour-01.png" alt="Leeds Trinity University"/></div>
+        <div class="uni-country-badge">🇬🇧 UK</div>
+        <div class="uni-name">Leeds Trinity University</div>
+        <a href="https://www.leedstrinity.ac.uk" target="_blank" rel="noopener" class="uni-link">Learn More <i class="fa-solid fa-arrow-up-right-from-square fa-xs"></i></a>
+      </div>
+
+      <div class="uni-card show" data-country="uk" data-name="University of Sunderland">
+        <div class="uni-logo-wrap"><img src="images/universities/uk/22. Sunderland logo2_0.png" alt="University of Sunderland"/></div>
+        <div class="uni-country-badge">🇬🇧 UK</div>
+        <div class="uni-name">University of Sunderland</div>
+        <a href="https://www.sunderland.ac.uk" target="_blank" rel="noopener" class="uni-link">Learn More <i class="fa-solid fa-arrow-up-right-from-square fa-xs"></i></a>
+      </div>
+
+      <div class="uni-card show" data-country="uk" data-name="University of Kent">
+        <div class="uni-logo-wrap"><img src="images/universities/uk/23. University-of-Kent.png" alt="University of Kent"/></div>
+        <div class="uni-country-badge">🇬🇧 UK</div>
+        <div class="uni-name">University of Kent</div>
+        <a href="https://www.kent.ac.uk" target="_blank" rel="noopener" class="uni-link">Learn More <i class="fa-solid fa-arrow-up-right-from-square fa-xs"></i></a>
+      </div>
+
+      <div class="uni-card show" data-country="uk" data-name="University of Leicester">
+        <div class="uni-logo-wrap"><img src="images/universities/uk/24. university-of-leicester-logo_0.jpg" alt="University of Leicester"/></div>
+        <div class="uni-country-badge">🇬🇧 UK</div>
+        <div class="uni-name">University of Leicester</div>
+        <a href="https://le.ac.uk" target="_blank" rel="noopener" class="uni-link">Learn More <i class="fa-solid fa-arrow-up-right-from-square fa-xs"></i></a>
+      </div>
+
+      <div class="uni-card show" data-country="uk" data-name="De Montfort University">
+        <div class="uni-logo-wrap"><img src="images/universities/uk/25. images.png" alt="De Montfort University"/></div>
+        <div class="uni-country-badge">🇬🇧 UK</div>
+        <div class="uni-name">De Montfort University</div>
+        <a href="https://www.dmu.ac.uk" target="_blank" rel="noopener" class="uni-link">Learn More <i class="fa-solid fa-arrow-up-right-from-square fa-xs"></i></a>
+      </div>
+
+      <div class="uni-card show" data-country="uk" data-name="Kingston University London">
+        <div class="uni-logo-wrap"><img src="images/universities/uk/26. kingston-university-london-logo-vector.png" alt="Kingston University London"/></div>
+        <div class="uni-country-badge">🇬🇧 UK</div>
+        <div class="uni-name">Kingston University London</div>
+        <a href="https://www.kingston.ac.uk" target="_blank" rel="noopener" class="uni-link">Learn More <i class="fa-solid fa-arrow-up-right-from-square fa-xs"></i></a>
+      </div>
+
+      <div class="uni-card show" data-country="uk" data-name="Middlesex University London">
+        <div class="uni-logo-wrap"><img src="images/universities/uk/27. MiddlesexLogo.png" alt="Middlesex University London"/></div>
+        <div class="uni-country-badge">🇬🇧 UK</div>
+        <div class="uni-name">Middlesex University London</div>
+        <a href="https://www.mdx.ac.uk" target="_blank" rel="noopener" class="uni-link">Learn More <i class="fa-solid fa-arrow-up-right-from-square fa-xs"></i></a>
+      </div>
+
+      <div class="uni-card show" data-country="uk" data-name="Coventry University">
+        <div class="uni-logo-wrap"><img src="images/universities/uk/28. coventry-university-logo.jpg" alt="Coventry University"/></div>
+        <div class="uni-country-badge">🇬🇧 UK</div>
+        <div class="uni-name">Coventry University</div>
+        <a href="https://www.coventry.ac.uk" target="_blank" rel="noopener" class="uni-link">Learn More <i class="fa-solid fa-arrow-up-right-from-square fa-xs"></i></a>
+      </div>
+
+      <div class="uni-card show" data-country="uk" data-name="University of Bradford">
+        <div class="uni-logo-wrap"><img src="images/universities/uk/29. University_of_Bradford_Logo_old.png" alt="University of Bradford"/></div>
+        <div class="uni-country-badge">🇬🇧 UK</div>
+        <div class="uni-name">University of Bradford</div>
+        <a href="https://www.bradford.ac.uk" target="_blank" rel="noopener" class="uni-link">Learn More <i class="fa-solid fa-arrow-up-right-from-square fa-xs"></i></a>
+      </div>
+
+      <div class="uni-card show" data-country="uk" data-name="Canterbury Christ Church University">
+        <div class="uni-logo-wrap"><img src="images/universities/uk/30. CCCU-Logo-Full.png" alt="Canterbury Christ Church University"/></div>
+        <div class="uni-country-badge">🇬🇧 UK</div>
+        <div class="uni-name">Canterbury Christ Church University</div>
+        <a href="https://www.canterbury.ac.uk" target="_blank" rel="noopener" class="uni-link">Learn More <i class="fa-solid fa-arrow-up-right-from-square fa-xs"></i></a>
+      </div>
+
+      <div class="uni-card show" data-country="uk" data-name="City St George's University of London">
+        <div class="uni-logo-wrap"><img src="images/universities/uk/31. images.png" alt="City St George's University of London"/></div>
+        <div class="uni-country-badge">🇬🇧 UK</div>
+        <div class="uni-name">City St George's, University of London</div>
+        <a href="https://www.citystgeorges.ac.uk" target="_blank" rel="noopener" class="uni-link">Learn More <i class="fa-solid fa-arrow-up-right-from-square fa-xs"></i></a>
+      </div>
+
+      <div class="uni-card show" data-country="uk" data-name="Cranfield University">
+        <div class="uni-logo-wrap"><img src="images/universities/uk/32. Cranfield-Logo_Colour-2.png" alt="Cranfield University"/></div>
+        <div class="uni-country-badge">🇬🇧 UK</div>
+        <div class="uni-name">Cranfield University</div>
+        <a href="https://www.cranfield.ac.uk" target="_blank" rel="noopener" class="uni-link">Learn More <i class="fa-solid fa-arrow-up-right-from-square fa-xs"></i></a>
+      </div>
+
+      <div class="uni-card show" data-country="uk" data-name="Queen Mary University of London">
+        <div class="uni-logo-wrap"><img src="images/universities/uk/33. Untitled-design.png" alt="Queen Mary University of London"/></div>
+        <div class="uni-country-badge">🇬🇧 UK</div>
+        <div class="uni-name">Queen Mary University of London</div>
+        <a href="https://www.qmul.ac.uk" target="_blank" rel="noopener" class="uni-link">Learn More <i class="fa-solid fa-arrow-up-right-from-square fa-xs"></i></a>
+      </div>
+
+      <div class="uni-card show" data-country="uk" data-name="Royal Holloway University of London">
+        <div class="uni-logo-wrap"><img src="images/universities/uk/34. logo-large-london.png" alt="Royal Holloway University of London"/></div>
+        <div class="uni-country-badge">🇬🇧 UK</div>
+        <div class="uni-name">Royal Holloway, University of London</div>
+        <a href="https://www.royalholloway.ac.uk" target="_blank" rel="noopener" class="uni-link">Learn More <i class="fa-solid fa-arrow-up-right-from-square fa-xs"></i></a>
+      </div>
+
+      <div class="uni-card show" data-country="uk" data-name="Sheffield Hallam University">
+        <div class="uni-logo-wrap"><img src="images/universities/uk/35. London logo KA 50.png" alt="Sheffield Hallam University"/></div>
+        <div class="uni-country-badge">🇬🇧 UK</div>
+        <div class="uni-name">Sheffield Hallam University</div>
+        <a href="https://www.shu.ac.uk" target="_blank" rel="noopener" class="uni-link">Learn More <i class="fa-solid fa-arrow-up-right-from-square fa-xs"></i></a>
+      </div>
+
+      <div class="uni-card show" data-country="uk" data-name="SOAS University of London">
+        <div class="uni-logo-wrap"><img src="images/universities/uk/36. SOAS.png" alt="SOAS University of London"/></div>
+        <div class="uni-country-badge">🇬🇧 UK</div>
+        <div class="uni-name">SOAS University of London</div>
+        <a href="https://www.soas.ac.uk" target="_blank" rel="noopener" class="uni-link">Learn More <i class="fa-solid fa-arrow-up-right-from-square fa-xs"></i></a>
+      </div>
+
+      <div class="uni-card show" data-country="uk" data-name="University of Glasgow">
+        <div class="uni-logo-wrap"><img src="images/universities/uk/37. lg-685e45f7f2167-University-of-Glasgow.png" alt="University of Glasgow"/></div>
+        <div class="uni-country-badge">🇬🇧 UK</div>
+        <div class="uni-name">University of Glasgow</div>
+        <a href="https://www.gla.ac.uk" target="_blank" rel="noopener" class="uni-link">Learn More <i class="fa-solid fa-arrow-up-right-from-square fa-xs"></i></a>
+      </div>
+
+      <div class="uni-card show" data-country="uk" data-name="University of Northampton">
+        <div class="uni-logo-wrap"><img src="images/universities/uk/38. university-of-northampton-logo-vector.png" alt="University of Northampton"/></div>
+        <div class="uni-country-badge">🇬🇧 UK</div>
+        <div class="uni-name">University of Northampton</div>
+        <a href="https://www.northampton.ac.uk" target="_blank" rel="noopener" class="uni-link">Learn More <i class="fa-solid fa-arrow-up-right-from-square fa-xs"></i></a>
+      </div>
+
+      <div class="uni-card show" data-country="uk" data-name="University of Salford">
+        <div class="uni-logo-wrap"><img src="images/universities/uk/39. a19f6c5e09ed4a57a074373b704addb1.jpg" alt="University of Salford"/></div>
+        <div class="uni-country-badge">🇬🇧 UK</div>
+        <div class="uni-name">University of Salford</div>
+        <a href="https://www.salford.ac.uk" target="_blank" rel="noopener" class="uni-link">Learn More <i class="fa-solid fa-arrow-up-right-from-square fa-xs"></i></a>
+      </div>
+
+      <div class="uni-card show" data-country="uk" data-name="University of Stirling">
+        <div class="uni-logo-wrap"><img src="images/universities/uk/40. Stirling_images.png" alt="University of Stirling"/></div>
+        <div class="uni-country-badge">🇬🇧 UK</div>
+        <div class="uni-name">University of Stirling</div>
+        <a href="https://www.stir.ac.uk" target="_blank" rel="noopener" class="uni-link">Learn More <i class="fa-solid fa-arrow-up-right-from-square fa-xs"></i></a>
+      </div>
+
+      <div class="uni-card show" data-country="uk" data-name="University of Strathclyde">
+        <div class="uni-logo-wrap"><img src="images/universities/uk/41. colour-logo-1-600x300.jpg" alt="University of Strathclyde"/></div>
+        <div class="uni-country-badge">🇬🇧 UK</div>
+        <div class="uni-name">University of Strathclyde</div>
+        <a href="https://www.strath.ac.uk" target="_blank" rel="noopener" class="uni-link">Learn More <i class="fa-solid fa-arrow-up-right-from-square fa-xs"></i></a>
+      </div>
+
+      <div class="uni-card show" data-country="uk" data-name="University of Reading">
+        <div class="uni-logo-wrap"><img src="images/universities/uk/42. university-of-reading-logo-vector.png" alt="University of Reading"/></div>
+        <div class="uni-country-badge">🇬🇧 UK</div>
+        <div class="uni-name">University of Reading</div>
+        <a href="https://www.reading.ac.uk" target="_blank" rel="noopener" class="uni-link">Learn More <i class="fa-solid fa-arrow-up-right-from-square fa-xs"></i></a>
+      </div>
+
+      <div class="uni-card show" data-country="uk" data-name="University of Winchester">
+        <div class="uni-logo-wrap"><img src="images/universities/uk/43. Univeristy-of-Winchester.png" alt="University of Winchester"/></div>
+        <div class="uni-country-badge">🇬🇧 UK</div>
+        <div class="uni-name">University of Winchester</div>
+        <a href="https://www.winchester.ac.uk" target="_blank" rel="noopener" class="uni-link">Learn More <i class="fa-solid fa-arrow-up-right-from-square fa-xs"></i></a>
+      </div>
+
+      <!-- ══ TURKEY UNIVERSITIES ══ -->
+      <div class="uni-card show" data-country="turkey" data-name="Istanbul Okan University">
+        <div class="uni-logo-wrap"><img src="images/universities/01-okan.png" alt="Istanbul Okan University"/></div>
+        <div class="uni-country-badge">🇹🇷 Turkey</div>
+        <div class="uni-name">Istanbul Okan University</div>
+        <a href="https://www.okan.edu.tr/en/" target="_blank" rel="noopener" class="uni-link">Learn More <i class="fa-solid fa-arrow-up-right-from-square fa-xs"></i></a>
+      </div>
+
+      <div class="uni-card show" data-country="turkey" data-name="Istanbul Medipol University">
+        <div class="uni-logo-wrap"><img src="images/universities/02-medipol.png" alt="Istanbul Medipol University"/></div>
+        <div class="uni-country-badge">🇹🇷 Turkey</div>
+        <div class="uni-name">Istanbul Medipol University</div>
+        <a href="https://www.medipol.edu.tr/en" target="_blank" rel="noopener" class="uni-link">Learn More <i class="fa-solid fa-arrow-up-right-from-square fa-xs"></i></a>
+      </div>
+
+      <div class="uni-card show" data-country="turkey" data-name="Istanbul Atlas University">
+        <div class="uni-logo-wrap"><img src="images/universities/03-atlas.png" alt="Istanbul Atlas University"/></div>
+        <div class="uni-country-badge">🇹🇷 Turkey</div>
+        <div class="uni-name">Istanbul Atlas University</div>
+        <a href="https://www.atlas.edu.tr/en/" target="_blank" rel="noopener" class="uni-link">Learn More <i class="fa-solid fa-arrow-up-right-from-square fa-xs"></i></a>
+      </div>
+
+      <div class="uni-card show" data-country="turkey" data-name="Istanbul Kent University">
+        <div class="uni-logo-wrap"><img src="images/universities/04-kent.jpg" alt="Istanbul Kent University"/></div>
+        <div class="uni-country-badge">🇹🇷 Turkey</div>
+        <div class="uni-name">Istanbul Kent University</div>
+        <a href="https://www.kent.edu.tr/en" target="_blank" rel="noopener" class="uni-link">Learn More <i class="fa-solid fa-arrow-up-right-from-square fa-xs"></i></a>
+      </div>
+
+      <div class="uni-card show" data-country="turkey" data-name="Istanbul Topkapi University">
+        <div class="uni-logo-wrap"><img src="images/universities/05-topkapi.png" alt="Istanbul Topkapi University"/></div>
+        <div class="uni-country-badge">🇹🇷 Turkey</div>
+        <div class="uni-name">Istanbul Topkapi University</div>
+        <a href="https://www.topkapi.edu.tr/" target="_blank" rel="noopener" class="uni-link">Learn More <i class="fa-solid fa-arrow-up-right-from-square fa-xs"></i></a>
+      </div>
+
+      <div class="uni-card show" data-country="turkey" data-name="Istanbul Beykoz University">
+        <div class="uni-logo-wrap"><img src="images/universities/06-beykoz.png" alt="Istanbul Beykoz University"/></div>
+        <div class="uni-country-badge">🇹🇷 Turkey</div>
+        <div class="uni-name">Istanbul Beykoz University</div>
+        <a href="https://int.beykoz.edu.tr/" target="_blank" rel="noopener" class="uni-link">Learn More <i class="fa-solid fa-arrow-up-right-from-square fa-xs"></i></a>
+      </div>
+
+      <div class="uni-card show" data-country="turkey" data-name="Istanbul Arel University">
+        <div class="uni-logo-wrap"><img src="images/universities/07-arel.png" alt="Istanbul Arel University"/></div>
+        <div class="uni-country-badge">🇹🇷 Turkey</div>
+        <div class="uni-name">Istanbul Arel University</div>
+        <a href="https://international.arel.edu.tr/" target="_blank" rel="noopener" class="uni-link">Learn More <i class="fa-solid fa-arrow-up-right-from-square fa-xs"></i></a>
+      </div>
+
+      <div class="uni-card show" data-country="turkey" data-name="Istanbul Yeni Yuzyil University">
+        <div class="uni-logo-wrap"><img src="images/universities/08-yeniyuzyil.png" alt="Istanbul Yeni Yuzyil University"/></div>
+        <div class="uni-country-badge">🇹🇷 Turkey</div>
+        <div class="uni-name">Istanbul Yeni Yüzyıl University</div>
+        <a href="https://international.yeniyuzyil.edu.tr/en/" target="_blank" rel="noopener" class="uni-link">Learn More <i class="fa-solid fa-arrow-up-right-from-square fa-xs"></i></a>
+      </div>
+
+      <div class="uni-card show" data-country="turkey" data-name="Istanbul Beykent University">
+        <div class="uni-logo-wrap"><img src="images/universities/09-beykent.png" alt="Istanbul Beykent University"/></div>
+        <div class="uni-country-badge">🇹🇷 Turkey</div>
+        <div class="uni-name">Istanbul Beykent University</div>
+        <a href="https://www.beykent.edu.tr/en" target="_blank" rel="noopener" class="uni-link">Learn More <i class="fa-solid fa-arrow-up-right-from-square fa-xs"></i></a>
+      </div>
+
+      <div class="uni-card show" data-country="turkey" data-name="Istanbul Nisantasi University">
+        <div class="uni-logo-wrap"><img src="images/universities/10-nisantasi.png" alt="Istanbul Nisantasi University"/></div>
+        <div class="uni-country-badge">🇹🇷 Turkey</div>
+        <div class="uni-name">Istanbul Nişantaşı University</div>
+        <a href="https://www.nisantasi.edu.tr/?dil=eng" target="_blank" rel="noopener" class="uni-link">Learn More <i class="fa-solid fa-arrow-up-right-from-square fa-xs"></i></a>
+      </div>
+
+      <div class="uni-card show" data-country="turkey" data-name="Istanbul Health and Technology University">
+        <div class="uni-logo-wrap"><img src="images/universities/11-istun.png" alt="Istanbul Health and Technology University"/></div>
+        <div class="uni-country-badge">🇹🇷 Turkey</div>
+        <div class="uni-name">Istanbul Health & Technology University</div>
+        <a href="https://www.istun.edu.tr/en" target="_blank" rel="noopener" class="uni-link">Learn More <i class="fa-solid fa-arrow-up-right-from-square fa-xs"></i></a>
+      </div>
+
+      <div class="uni-card show" data-country="turkey" data-name="Istanbul Biruni University">
+        <div class="uni-logo-wrap"><img src="images/universities/12-biruni.jpg" alt="Istanbul Biruni University"/></div>
+        <div class="uni-country-badge">🇹🇷 Turkey</div>
+        <div class="uni-name">Istanbul Biruni University</div>
+        <a href="https://aday.biruni.edu.tr/en" target="_blank" rel="noopener" class="uni-link">Learn More <i class="fa-solid fa-arrow-up-right-from-square fa-xs"></i></a>
+      </div>
+
+      <div class="uni-card show" data-country="turkey" data-name="Istanbul Aydin University">
+        <div class="uni-logo-wrap"><img src="images/universities/13-aydin.png" alt="Istanbul Aydin University"/></div>
+        <div class="uni-country-badge">🇹🇷 Turkey</div>
+        <div class="uni-name">Istanbul Aydın University</div>
+        <a href="https://www.aydin.edu.tr/en-us/Pages/default.aspx" target="_blank" rel="noopener" class="uni-link">Learn More <i class="fa-solid fa-arrow-up-right-from-square fa-xs"></i></a>
+      </div>
+
+      <div class="uni-card show" data-country="turkey" data-name="Istanbul Gedik University">
+        <div class="uni-logo-wrap"><img src="images/universities/14-gedik.png" alt="Istanbul Gedik University"/></div>
+        <div class="uni-country-badge">🇹🇷 Turkey</div>
+        <div class="uni-name">Istanbul Gedik University</div>
+        <a href="https://www.gedik.edu.tr/en/" target="_blank" rel="noopener" class="uni-link">Learn More <i class="fa-solid fa-arrow-up-right-from-square fa-xs"></i></a>
+      </div>
+
+      <div class="uni-card show" data-country="turkey" data-name="Istanbul Kultur University">
+        <div class="uni-logo-wrap"><img src="images/universities/15-kultur.jpg" alt="Istanbul Kultur University"/></div>
+        <div class="uni-country-badge">🇹🇷 Turkey</div>
+        <div class="uni-name">Istanbul Kültür University</div>
+        <a href="https://iku.edu.tr/index.php/en" target="_blank" rel="noopener" class="uni-link">Learn More <i class="fa-solid fa-arrow-up-right-from-square fa-xs"></i></a>
+      </div>
+
+      <div class="uni-card show" data-country="turkey" data-name="Istanbul Sabahattin Zaim University">
+        <div class="uni-logo-wrap"><img src="images/universities/16-izu.png" alt="Istanbul Sabahattin Zaim University"/></div>
+        <div class="uni-country-badge">🇹🇷 Turkey</div>
+        <div class="uni-name">Istanbul Sabahattin Zaim University</div>
+        <a href="https://www.izu.edu.tr/en" target="_blank" rel="noopener" class="uni-link">Learn More <i class="fa-solid fa-arrow-up-right-from-square fa-xs"></i></a>
+      </div>
+
+      <div class="uni-card show" data-country="turkey" data-name="Istanbul Gelisim University">
+        <div class="uni-logo-wrap"><img src="images/universities/17-gelisim.png" alt="Istanbul Gelisim University"/></div>
+        <div class="uni-country-badge">🇹🇷 Turkey</div>
+        <div class="uni-name">Istanbul Gelişim University</div>
+        <a href="https://gelisim.edu.tr/en/gelisim-homepage" target="_blank" rel="noopener" class="uni-link">Learn More <i class="fa-solid fa-arrow-up-right-from-square fa-xs"></i></a>
+      </div>
+
+      <div class="uni-card show" data-country="turkey" data-name="Istanbul Uskudar University">
+        <div class="uni-logo-wrap"><img src="images/universities/18-uskudar.png" alt="Istanbul Uskudar University"/></div>
+        <div class="uni-country-badge">🇹🇷 Turkey</div>
+        <div class="uni-name">Istanbul Üsküdar University</div>
+        <a href="https://uskudar.edu.tr/en" target="_blank" rel="noopener" class="uni-link">Learn More <i class="fa-solid fa-arrow-up-right-from-square fa-xs"></i></a>
+      </div>
+
+      <div class="uni-card show" data-country="turkey" data-name="Istanbul Fenerbahce University">
+        <div class="uni-logo-wrap"><img src="images/universities/19-fenerbahce.png" alt="Istanbul Fenerbahce University"/></div>
+        <div class="uni-country-badge">🇹🇷 Turkey</div>
+        <div class="uni-name">Istanbul Fenerbahçe University</div>
+        <a href="https://www.fbu.edu.tr/en" target="_blank" rel="noopener" class="uni-link">Learn More <i class="fa-solid fa-arrow-up-right-from-square fa-xs"></i></a>
+      </div>
+
+      <!-- No results message -->
+      <div class="no-results" id="noResults">
+        <i class="fa-solid fa-building-columns"></i>
+        <h3>No universities found</h3>
+        <p>Try a different search term or select another country tab.</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="uni-cta">
+  <div class="uni-cta-bg"></div>
+  <div class="uni-cta-ct reveal">
+    <h2>Can't Find Your Dream University?</h2>
+    <p>We work through verified application channels for the UK, Turkey, Ireland and Malaysia. Contact us and our experts will find the option that best fits your profile, goals and budget.</p>
+    <a href="index.html#contact" class="uni-cta-btn">Book Free Consultation <i class="fa-solid fa-arrow-right"></i></a>
+  </div>
+</section>
+
+<div id="site-footer"></div>
+
+<a href="https://wa.me/923155009620?text=Hi%20Path%20Plaza%2C%20I%27d%20like%20to%20know%20more%20about%20studying%20abroad." class="whatsapp-float" target="_blank" rel="noopener" aria-label="WhatsApp">
+  <i class="fa-brands fa-whatsapp"></i>
+</a>
+
+<script>
+  fetch('header.html').then(r=>r.text()).then(function(h){document.getElementById('site-header').innerHTML=h;initHeader();});
+
+  function initHeader(){
+    var btn=document.getElementById('ppHamburger');
+    var menu=document.getElementById('ppMobMenu');
+    var closeBtn=document.getElementById('ppMobClose');
+    if(!btn||!menu) return;
+    btn.addEventListener('click',function(){
+      menu.classList.toggle('open');
+      btn.classList.toggle('is-open');
+    });
+    if(closeBtn){
+      closeBtn.addEventListener('click',function(){
+        menu.classList.remove('open');
+        btn.classList.remove('is-open');
+      });
+    }
+    menu.querySelectorAll('a').forEach(function(a){
+      a.addEventListener('click',function(){ menu.classList.remove('open'); btn.classList.remove('is-open'); });
+    });
+  }
+  fetch('footer.html').then(r=>r.text()).then(h=>{document.getElementById('site-footer').innerHTML=h;});
+
+  // Reveal
+  const obs = new IntersectionObserver(e=>{e.forEach(el=>{if(el.isIntersecting)el.target.classList.add('visible');});},{threshold:.1});
+  document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
+
+  // ══ FILTER + SEARCH LOGIC ══
+  const cards = document.querySelectorAll('.uni-card');
+  const noResults = document.getElementById('noResults');
+  const visibleCount = document.getElementById('visibleCount');
+  let activeCountry = 'all';
+  let searchTerm = '';
+
+  // Count per country for tabs
+  const counts = {};
+  cards.forEach(c => {
+    const country = c.dataset.country;
+    counts[country] = (counts[country] || 0) + 1;
+  });
+  // Update tab counts
+  Object.keys(counts).forEach(c => {
+    const el = document.getElementById('count-' + c);
+    if (el) el.textContent = counts[c];
+  });
+  document.getElementById("count-all").textContent = cards.length;
+
+  function filterCards() {
+    let visible = 0;
+    let delay = 0;
+    cards.forEach(card => {
+      const matchCountry = activeCountry === 'all' || card.dataset.country === activeCountry;
+      const matchSearch = card.dataset.name.toLowerCase().includes(searchTerm);
+      if (matchCountry && matchSearch) {
+        card.classList.remove('hide');
+        card.classList.add('show');
+        card.style.animationDelay = (delay * 40) + 'ms';
+        delay++;
+        visible++;
+      } else {
+        card.classList.add('hide');
+        card.classList.remove('show');
+      }
+    });
+    visibleCount.textContent = visible;
+    noResults.style.display = visible === 0 ? 'block' : 'none';
+  }
+
+  // Tab click
+  document.getElementById('filterTabs').addEventListener('click', e => {
+    const tab = e.target.closest('.filter-tab');
+    if (!tab) return;
+    document.querySelectorAll('.filter-tab').forEach(t => t.classList.remove('active'));
+    tab.classList.add('active');
+    activeCountry = tab.dataset.country;
+    filterCards();
+  });
+
+  // Search
+  document.getElementById('uniSearch').addEventListener('input', e => {
+    searchTerm = e.target.value.toLowerCase().trim();
+    filterCards();
+  });
+</script>
+</body>
+</html>
